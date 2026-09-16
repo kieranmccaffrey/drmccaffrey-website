@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>New Patient Form | Dr Kieran McCaffrey</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,340;9..144,480;9..144,600&family=Fraunces:ital,opsz,wght@1,9..144,480&family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500;6..96,600;6..96,700&family=Bodoni+Moda:ital,opsz,wght@1,6..96,400;1,6..96,500&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="resources.css">
+</head>
+<body>
+<header class="nav">
+  <div class="nav-inner">
+    <a class="wordmark" href="index.html">Dr Kieran <em>McCaffrey</em></a>
+    <a class="nav-cta" href="index.html">Return to Home Page</a>
+  </div>
+</header>
+<main>
+  <section class="page-hero">
+    <div class="wrap">
+      <span class="eyebrow">New patients</span>
+      <h1>New Patient Form</h1>
+      <p>Please complete the form below ahead of your first appointment. Prefer email? Write to <a href="mailto:admin@drmccaffrey.com.au" style="color:var(--navy); font-weight:600;">admin@drmccaffrey.com.au</a> instead.</p>
+    </div>
+  </section>
+
+  <section class="calc-section">
+    <div class="wrap">
+      <form name="new-patient" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" action="/thank-you.html" class="patient-form">
+        <input type="hidden" name="form-name" value="new-patient">
+        <p class="form-hp"><label>Leave this field blank if you're human: <input name="bot-field"></label></p>
+
+        <div class="form-section">
+          <h3>Personal information</h3>
+          <div class="form-grid">
+            <div class="form-field">
+              <label for="np-name">Name<span aria-hidden="true">*</span></label>
+              <input id="np-name" name="name" type="text" autocomplete="name" required>
+            </div>
+            <div class="form-field">
+              <label for="np-dob">Date of birth<span aria-hidden="true">*</span></label>
+              <input id="np-dob" name="date_of_birth" type="date" autocomplete="bday" required>
+            </div>
+            <div class="form-field">
+              <label for="np-email">Email<span aria-hidden="true">*</span></label>
+              <input id="np-email" name="email" type="email" autocomplete="email" required>
+            </div>
+            <div class="form-field">
+              <label for="np-occupation">Occupation</label>
+              <input id="np-occupation" name="occupation" type="text">
+            </div>
+            <div class="form-field form-field--full">
+              <label for="np-address">Full address, city &amp; postcode</label>
+              <input id="np-address" name="address" type="text" autocomplete="street-address">
+            </div>
+            <div class="form-field">
+              <label for="np-mobile">Mobile phone<span aria-hidden="true">*</span></label>
+              <input id="np-mobile" name="mobile_phone" type="tel" autocomplete="tel" required>
+            </div>
+            <div class="form-field">
+              <label for="np-home-phone">Home phone</label>
+              <input id="np-home-phone" name="home_phone" type="tel">
+            </div>
+            <div class="form-field">
+              <label for="np-ec-name">Emergency contact name</label>
+              <input id="np-ec-name" name="emergency_contact_name" type="text">
+            </div>
+            <div class="form-field">
+              <label for="np-ec-phone">Emergency contact number</label>
+              <input id="np-ec-phone" name="emergency_contact_number" type="tel">
+            </div>
+          </div>
+        </div>
+
+        <div class="form-section">
+          <h3>Referral</h3>
+          <div class="form-grid">
+            <div class="form-field">
+              <label for="np-gp">Referring GP / specialist details</label>
+              <input id="np-gp" name="referring_gp" type="text" autocomplete="off">
+            </div>
+            <div class="form-field">
+              <label for="np-source">Where did you hear about Dr McCaffrey?</label>
+              <input id="np-source" name="referral_source" type="text">
+            </div>
+          </div>
+        </div>
+
+        <div class="form-section">
+          <h3>Insurance information</h3>
+          <div class="form-grid">
+            <div class="form-field">
+              <label for="np-medicare">Medicare number</label>
+              <input id="np-medicare" name="medicare_number" type="text" inputmode="numeric" autocomplete="off">
+            </div>
+            <div class="form-field">
+              <label for="np-medicare-ref">Medicare reference number</label>
+              <input id="np-medicare-ref" name="medicare_reference_number" type="text" inputmode="numeric" autocomplete="off">
+            </div>
+            <div class="form-field form-field--full">
+              <label>Do you have private health cover?</label>
+              <div class="radio-group" role="radiogroup" aria-label="Do you have private health cover?">
+                <label class="radio-option"><input type="radio" name="private_cover" value="Yes"> Yes</label>
+                <label class="radio-option"><input type="radio" name="private_cover" value="No"> No</label>
+              </div>
+            </div>
+            <div id="insurance-conditional" class="form-field form-field--full">
+              <div class="form-grid" style="margin-bottom:0;">
+                <div class="form-field">
+                  <label for="np-cover-level">Level of private cover</label>
+                  <select id="np-cover-level" name="private_cover_level">
+                    <option value="" selected>Not applicable</option>
+                    <option value="Obstetrics & Gynaecology">Obstetrics &amp; Gynaecology</option>
+                    <option value="Gynaecology Only">Gynaecology Only</option>
+                    <option value="Extras Only">Extras Only</option>
+                  </select>
+                </div>
+                <div class="form-field">
+                  <label for="np-fund">Private fund</label>
+                  <input id="np-fund" name="private_fund" type="text">
+                </div>
+                <div class="form-field">
+                  <label for="np-fund-id">Private fund member number / ID</label>
+                  <input id="np-fund-id" name="private_fund_member_id" type="text">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-section">
+          <h3>Medical history</h3>
+          <div class="form-grid">
+            <div class="form-field form-field--full">
+              <label for="np-conditions">Do you have any medical conditions?</label>
+              <textarea id="np-conditions" name="medical_conditions" rows="3"></textarea>
+            </div>
+            <div class="form-field form-field--full">
+              <label for="np-surgeries">Any previous surgeries?</label>
+              <textarea id="np-surgeries" name="previous_surgeries" rows="3"></textarea>
+            </div>
+            <div class="form-field form-field--full">
+              <label for="np-family-history">Any family history of medical conditions?</label>
+              <textarea id="np-family-history" name="family_history" rows="3"></textarea>
+            </div>
+            <div class="form-field form-field--full">
+              <label for="np-medications">Current medications or supplements</label>
+              <textarea id="np-medications" name="medications" rows="3"></textarea>
+            </div>
+            <div class="form-field form-field--full">
+              <label for="np-allergies">Any known allergies?</label>
+              <textarea id="np-allergies" name="allergies" rows="2"></textarea>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-section">
+          <h3>Women's health screening</h3>
+          <div class="form-grid">
+            <div class="form-field">
+              <label for="np-pap">Most recent cervical screening test (Pap smear)</label>
+              <input id="np-pap" name="cervical_screening_date" type="text" placeholder="Date, or approximate">
+            </div>
+            <div class="form-field">
+              <label for="np-mammogram">Mammogram — year &amp; result</label>
+              <input id="np-mammogram" name="mammogram" type="text" placeholder="Year, and normal / abnormal">
+            </div>
+          </div>
+        </div>
+
+        <div class="form-section">
+          <h3>Obstetric history</h3>
+          <p class="form-hint">If any of the following apply, please give brief details.</p>
+          <div class="form-grid">
+            <div class="form-field form-field--full">
+              <label for="np-pregnant">Have you ever been pregnant?</label>
+              <textarea id="np-pregnant" name="pregnancy_history" rows="2" placeholder="Number of pregnancies and outcomes"></textarea>
+            </div>
+            <div class="form-field">
+              <label for="np-ectopic">Ectopic pregnancy?</label>
+              <input id="np-ectopic" name="ectopic_pregnancy" type="text">
+            </div>
+            <div class="form-field">
+              <label for="np-miscarriage">Miscarriage?</label>
+              <input id="np-miscarriage" name="miscarriage" type="text">
+            </div>
+            <div class="form-field">
+              <label for="np-termination">Termination of pregnancy?</label>
+              <input id="np-termination" name="termination_of_pregnancy" type="text">
+            </div>
+          </div>
+        </div>
+
+        <div class="form-section">
+          <h3>Birth details</h3>
+          <p class="form-hint">For each previous birth, please include name / sex / date of birth / hospital / gestation / birth weight / mode of delivery.</p>
+          <div class="form-grid">
+            <div class="form-field form-field--full">
+              <label for="np-birth-1">Birth #1</label>
+              <input id="np-birth-1" name="birth_1" type="text">
+            </div>
+            <div class="form-field form-field--full">
+              <label for="np-birth-2">Birth #2</label>
+              <input id="np-birth-2" name="birth_2" type="text">
+            </div>
+            <div class="form-field form-field--full">
+              <label for="np-birth-3">Birth #3</label>
+              <input id="np-birth-3" name="birth_3" type="text">
+            </div>
+            <div class="form-field form-field--full">
+              <label for="np-birth-4">Birth #4</label>
+              <input id="np-birth-4" name="birth_4" type="text">
+            </div>
+          </div>
+        </div>
+
+        <div class="form-section">
+          <h3>Pregnancy complications</h3>
+          <div class="form-grid">
+            <div class="form-field form-field--full">
+              <label for="np-complications">Any pregnancy complications?</label>
+              <textarea id="np-complications" name="pregnancy_complications" rows="3"></textarea>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-section">
+          <h3>Consent</h3>
+          <div class="consent-group">
+            <label class="consent-item">
+              <input type="checkbox" name="consent_information_sharing" value="Agreed" required>
+              I agree that relevant information may be obtained from other medical practitioners, such as GPs and specialists, other health care providers, pathologists, hospital and day surgery units as necessary.
+            </label>
+            <label class="consent-item">
+              <input type="checkbox" name="consent_discussion_with_gp" value="Agreed" required>
+              I agree that Dr McCaffrey may discuss my medical history, diagnosis and management with my general practitioner and other relevant medical specialists in relation to my medical management.
+            </label>
+            <label class="consent-item">
+              <input type="checkbox" name="consent_research_database" value="Agreed" required>
+              I agree that Dr McCaffrey's database may be used in an anonymous fashion for medical research purposes.
+            </label>
+            <label class="consent-item">
+              <input type="checkbox" name="consent_collection_fees" value="Agreed" required>
+              I agree that for unpaid accounts requiring a collection agency, 30% of my invoice will be added to cover these expenses.
+            </label>
+            <label class="consent-item">
+              <input type="checkbox" name="consent_ai_scribing" value="Agreed" required>
+              I acknowledge that this practice at times uses medical scribing AI software to assist in note taking and dictation.
+            </label>
+          </div>
+        </div>
+
+        <button class="btn btn-solid" type="submit">Send new patient form</button>
+      </form>
+    </div>
+  </section>
+</main>
+<footer class="simple-footer">
+  <div class="wrap">&copy; 2026 Dr Kieran McCaffrey. Obstetrician &amp; Gynaecologist.</div>
+</footer>
+
+<script>
+  (function(){
+    var radios = document.querySelectorAll('input[name="private_cover"]');
+    var conditional = document.getElementById('insurance-conditional');
+    if(!conditional || !radios.length) return;
+    function update(){
+      var checked = document.querySelector('input[name="private_cover"]:checked');
+      conditional.hidden = !(checked && checked.value === 'Yes');
+    }
+    radios.forEach(function(r){ r.addEventListener('change', update); });
+    update();
+  })();
+</script>
+</body>
+</html>

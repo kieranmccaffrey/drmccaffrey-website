@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thank you — Dr Kieran McCaffrey</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,340;9..144,600&family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500;6..96,600;6..96,700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F8F2E8;
+    --ink:#46392C;
+    --ink-soft:#9C8A70;
+    --navy:#AF7856;
+    --monitor:#9C8058;
+    --line:rgba(59,49,38,0.14);
+    --line-strong:rgba(59,49,38,0.28);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#221A13;
+      --ink:#F2E7D8;
+      --ink-soft:#C9B79C;
+      --navy:#D9A182;
+      --monitor:#C7A876;
+      --line:rgba(242,231,216,0.14);
+      --line-strong:rgba(242,231,216,0.26);
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#221A13;
+    --ink:#F2E7D8;
+    --ink-soft:#C9B79C;
+    --navy:#D9A182;
+    --monitor:#C7A876;
+    --line:rgba(242,231,216,0.14);
+    --line-strong:rgba(242,231,216,0.26);
+  }
+  *{box-sizing:border-box;}
+  html,body{height:100%;}
+  body{
+    margin:0;
+    display:flex; align-items:center; justify-content:center;
+    background:var(--paper); color:var(--ink);
+    font-family:"Work Sans", ui-sans-serif, system-ui, sans-serif;
+    padding:24px; text-align:center;
+  }
+  .card{ max-width:480px; }
+  .wordmark{
+    font-family:"Bodoni Moda", Georgia, serif; font-weight:600; font-size:1.2rem;
+    color:var(--navy); text-decoration:none;
+  }
+  .check{
+    width:56px; height:56px; border-radius:50%; margin:28px auto 0;
+    background:var(--monitor); display:flex; align-items:center; justify-content:center;
+  }
+  .check svg{ width:26px; height:26px; stroke:#F5EFE4; }
+  h1{ font-family:"Fraunces", Georgia, serif; font-size:2rem; margin:20px 0 12px; }
+  p{ color:var(--ink-soft); line-height:1.65; font-size:1.02rem; }
+  a.btn{
+    display:inline-flex; margin-top:26px; padding:13px 27px; border-radius:999px;
+    background:#FAF6EC; color:var(--ink); border:1px solid var(--line-strong);
+    text-decoration:none; font-weight:600;
+  }
+  a.btn:hover{ opacity:0.88; }
+</style>
+</head>
+<body>
+  <div class="card">
+    <a class="wordmark" href="/">Dr Kieran McCaffrey</a>
+    <div class="check" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+    </div>
+    <h1>Thank you</h1>
+    <p>Your new patient form has been received. The rooms will be in touch shortly to help arrange your first appointment.</p>
+    <a class="btn" href="/">Return to homepage</a>
+  </div>
+</body>
+</html>

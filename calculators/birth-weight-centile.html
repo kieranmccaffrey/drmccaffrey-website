@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Birth Weight Centile Calculator | Dr Kieran McCaffrey</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,340;9..144,480;9..144,600&family=Fraunces:ital,opsz,wght@1,9..144,480&family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500;6..96,600;6..96,700&family=Bodoni+Moda:ital,opsz,wght@1,6..96,400;1,6..96,500&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../resources.css">
+</head>
+<body>
+<header class="nav">
+  <div class="nav-inner">
+    <a class="wordmark" href="../index.html">Dr Kieran <em>McCaffrey</em></a>
+    <a class="nav-cta" href="../topics/pregnancy-calculators.html">Return to Pregnancy Calculators</a>
+  </div>
+</header>
+<main>
+  <section class="page-hero">
+    <div class="wrap">
+      <span class="eyebrow">Obstetrics &middot; Growth</span>
+      <h1>Birth Weight Centile Calculator</h1>
+      <p>See where a baby's birth weight sits on the growth curve for their exact gestational age and sex, at delivery between 33+0 and 42+6 weeks.</p>
+    </div>
+  </section>
+
+  <section class="calc-section">
+    <div class="wrap">
+      <div class="calc-card">
+        <h2>Delivery details</h2>
+
+        <div class="calc-row">
+          <div class="calc-field">
+            <label for="ga-weeks">Gestation at delivery — weeks</label>
+            <select id="ga-weeks"></select>
+          </div>
+          <div class="calc-field">
+            <label for="ga-days">+ days</label>
+            <select id="ga-days"></select>
+          </div>
+          <div class="calc-field">
+            <label for="birth-weight">Birth weight <span class="calc-hint">(grams)</span></label>
+            <input type="number" id="birth-weight" min="300" max="6500" step="1" placeholder="e.g. 3250">
+          </div>
+          <div class="calc-field">
+            <label for="sex">Sex</label>
+            <select id="sex">
+              <option value="boy">Male</option>
+              <option value="girl">Female</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="calc-actions">
+          <button class="calc-btn" id="calc-btn" type="button">Calculate</button>
+        </div>
+
+        <div class="calc-error" id="calc-error">Please enter a birth weight between 300 g and 6500 g.</div>
+
+        <div class="calc-result" id="result">
+          <div class="calc-result-headline" id="result-centile"></div>
+          <div class="calc-result-sub" id="result-sub"></div>
+
+          <div class="calc-result-grid">
+            <div class="calc-stat">
+              <div class="calc-stat-label">Z-score</div>
+              <div class="calc-stat-value" id="result-z"></div>
+            </div>
+            <div class="calc-stat">
+              <div class="calc-stat-label">Median weight, this gestation</div>
+              <div class="calc-stat-value" id="result-median"></div>
+            </div>
+          </div>
+
+          <table class="calc-table">
+            <thead><tr><th>&minus;2 SD (~2nd)</th><th>&minus;1 SD (~16th)</th><th>Median (50th)</th><th>+1 SD (~84th)</th><th>+2 SD (~98th)</th></tr></thead>
+            <tbody><tr id="centile-row"></tr></tbody>
+          </table>
+        </div>
+
+        <div class="calc-note"><strong>Estimate only.</strong> A single birth weight centile does not, by itself, diagnose a growth problem — it is one part of the overall clinical picture, alongside the pregnancy's growth trajectory and the baby's wellbeing. Please discuss this result with Dr McCaffrey or your paediatric team.</div>
+        <div class="calc-source">Reference: Nicolaides KH, Wright D, Syngelaki A, Wright A, Akolekar R. Fetal Medicine Foundation fetal and neonatal population weight charts — implemented here using the University of Oxford INTERGROWTH‑21st international newborn weight standard (Villar J et al, <em>Lancet</em> 2014), 33+0–42+6 weeks.</div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="simple-footer">
+  <div class="wrap">&copy; 2026 Dr Kieran McCaffrey. Obstetrician &amp; Gynaecologist.</div>
+</footer>
+
+<script>
+var BOYS = [[0.63, 1.13, 1.55, 1.95, 2.39, 2.88, 3.47], [0.67, 1.17, 1.59, 1.99, 2.43, 2.92, 3.51], [0.71, 1.21, 1.63, 2.03, 2.47, 2.96, 3.55], [0.75, 1.25, 1.67, 2.07, 2.5, 2.99, 3.59], [0.79, 1.29, 1.71, 2.11, 2.54, 3.03, 3.62], [0.83, 1.33, 1.75, 2.15, 2.58, 3.07, 3.66], [0.87, 1.37, 1.79, 2.18, 2.62, 3.11, 3.7], [0.91, 1.4, 1.82, 2.22, 2.65, 3.14, 3.73], [0.95, 1.44, 1.86, 2.26, 2.69, 3.18, 3.77], [0.98, 1.48, 1.9, 2.29, 2.73, 3.21, 3.8], [1.02, 1.51, 1.93, 2.33, 2.76, 3.25, 3.84], [1.05, 1.55, 1.97, 2.36, 2.8, 3.28, 3.87], [1.09, 1.58, 2.0, 2.4, 2.83, 3.32, 3.91], [1.12, 1.62, 2.04, 2.43, 2.86, 3.35, 3.94], [1.16, 1.65, 2.07, 2.47, 2.9, 3.38, 3.97], [1.19, 1.69, 2.1, 2.5, 2.93, 3.42, 4.0], [1.23, 1.72, 2.14, 2.53, 2.96, 3.45, 4.04], [1.26, 1.75, 2.17, 2.57, 3.0, 3.48, 4.07], [1.29, 1.78, 2.2, 2.6, 3.03, 3.51, 4.1], [1.32, 1.82, 2.23, 2.63, 3.06, 3.54, 4.13], [1.36, 1.85, 2.26, 2.66, 3.09, 3.57, 4.16], [1.39, 1.88, 2.29, 2.69, 3.12, 3.6, 4.19], [1.42, 1.91, 2.33, 2.72, 3.15, 3.63, 4.22], [1.45, 1.94, 2.36, 2.75, 3.18, 3.66, 4.25], [1.48, 1.97, 2.38, 2.78, 3.21, 3.69, 4.28], [1.51, 2.0, 2.41, 2.81, 3.24, 3.72, 4.3], [1.54, 2.03, 2.44, 2.84, 3.26, 3.75, 4.33], [1.57, 2.06, 2.47, 2.87, 3.29, 3.78, 4.36], [1.59, 2.08, 2.5, 2.89, 3.32, 3.8, 4.39], [1.62, 2.11, 2.53, 2.92, 3.35, 3.83, 4.41], [1.65, 2.14, 2.55, 2.95, 3.37, 3.86, 4.44], [1.68, 2.17, 2.58, 2.97, 3.4, 3.88, 4.46], [1.7, 2.19, 2.61, 3.0, 3.43, 3.91, 4.49], [1.73, 2.22, 2.63, 3.03, 3.45, 3.93, 4.51], [1.76, 2.24, 2.66, 3.05, 3.48, 3.96, 4.54], [1.78, 2.27, 2.68, 3.08, 3.5, 3.98, 4.56], [1.81, 2.29, 2.71, 3.1, 3.53, 4.01, 4.59], [1.83, 2.32, 2.73, 3.12, 3.55, 4.03, 4.61], [1.86, 2.34, 2.76, 3.15, 3.57, 4.05, 4.63], [1.88, 2.37, 2.78, 3.17, 3.6, 4.08, 4.66], [1.9, 2.39, 2.8, 3.19, 3.62, 4.1, 4.68], [1.93, 2.41, 2.82, 3.22, 3.64, 4.12, 4.7], [1.95, 2.43, 2.85, 3.24, 3.66, 4.14, 4.72], [1.97, 2.46, 2.87, 3.26, 3.68, 4.16, 4.74], [1.99, 2.48, 2.89, 3.28, 3.71, 4.19, 4.76], [2.01, 2.5, 2.91, 3.3, 3.73, 4.21, 4.78], [2.04, 2.52, 2.93, 3.32, 3.75, 4.23, 4.8], [2.06, 2.54, 2.95, 3.34, 3.77, 4.25, 4.82], [2.08, 2.56, 2.97, 3.36, 3.79, 4.27, 4.84], [2.1, 2.58, 2.99, 3.38, 3.81, 4.29, 4.86], [2.12, 2.6, 3.01, 3.4, 3.83, 4.3, 4.88], [2.14, 2.62, 3.03, 3.42, 3.85, 4.32, 4.9], [2.16, 2.64, 3.05, 3.44, 3.86, 4.34, 4.92], [2.17, 2.66, 3.07, 3.46, 3.88, 4.36, 4.94], [2.19, 2.68, 3.09, 3.48, 3.9, 4.38, 4.95], [2.21, 2.7, 3.1, 3.49, 3.92, 4.39, 4.97], [2.23, 2.71, 3.12, 3.51, 3.93, 4.41, 4.99], [2.25, 2.73, 3.14, 3.53, 3.95, 4.43, 5.0], [2.26, 2.75, 3.16, 3.55, 3.97, 4.44, 5.02], [2.28, 2.76, 3.17, 3.56, 3.98, 4.46, 5.04], [2.3, 2.78, 3.19, 3.58, 4.0, 4.48, 5.05], [2.31, 2.8, 3.2, 3.59, 4.02, 4.49, 5.07], [2.33, 2.81, 3.22, 3.61, 4.03, 4.51, 5.08], [2.34, 2.83, 3.24, 3.62, 4.05, 4.52, 5.1], [2.36, 2.84, 3.25, 3.64, 4.06, 4.54, 5.11], [2.37, 2.86, 3.26, 3.65, 4.07, 4.55, 5.12], [2.39, 2.87, 3.28, 3.67, 4.09, 4.56, 5.14], [2.4, 2.88, 3.29, 3.68, 4.1, 4.58, 5.15], [2.42, 2.9, 3.31, 3.69, 4.11, 4.59, 5.16], [2.43, 2.91, 3.32, 3.71, 4.13, 4.6, 5.18]];
+var GIRLS = [[0.75, 1.15, 1.5, 1.85, 2.23, 2.66, 3.16], [0.79, 1.19, 1.55, 1.89, 2.27, 2.7, 3.21], [0.83, 1.23, 1.59, 1.93, 2.31, 2.74, 3.25], [0.86, 1.27, 1.62, 1.97, 2.35, 2.78, 3.29], [0.9, 1.31, 1.66, 2.01, 2.39, 2.83, 3.34], [0.94, 1.35, 1.7, 2.05, 2.43, 2.87, 3.38], [0.97, 1.38, 1.74, 2.09, 2.47, 2.91, 3.42], [1.01, 1.42, 1.78, 2.13, 2.51, 2.95, 3.46], [1.04, 1.46, 1.81, 2.16, 2.55, 2.99, 3.5], [1.08, 1.49, 1.85, 2.2, 2.59, 3.03, 3.54], [1.11, 1.53, 1.89, 2.24, 2.63, 3.06, 3.58], [1.15, 1.56, 1.92, 2.27, 2.66, 3.1, 3.62], [1.18, 1.59, 1.95, 2.31, 2.7, 3.14, 3.66], [1.21, 1.63, 1.99, 2.34, 2.73, 3.17, 3.7], [1.24, 1.66, 2.02, 2.38, 2.77, 3.21, 3.73], [1.27, 1.69, 2.05, 2.41, 2.8, 3.24, 3.77], [1.31, 1.72, 2.09, 2.44, 2.84, 3.28, 3.8], [1.34, 1.75, 2.12, 2.48, 2.87, 3.31, 3.84], [1.37, 1.78, 2.15, 2.51, 2.9, 3.35, 3.87], [1.39, 1.81, 2.18, 2.54, 2.93, 3.38, 3.91], [1.42, 1.84, 2.21, 2.57, 2.97, 3.41, 3.94], [1.45, 1.87, 2.24, 2.6, 3.0, 3.45, 3.97], [1.48, 1.9, 2.27, 2.63, 3.03, 3.48, 4.01], [1.51, 1.93, 2.3, 2.66, 3.06, 3.51, 4.04], [1.53, 1.96, 2.33, 2.69, 3.09, 3.54, 4.07], [1.56, 1.99, 2.36, 2.72, 3.12, 3.57, 4.1], [1.59, 2.01, 2.38, 2.74, 3.15, 3.6, 4.13], [1.61, 2.04, 2.41, 2.77, 3.17, 3.63, 4.16], [1.64, 2.06, 2.44, 2.8, 3.2, 3.65, 4.19], [1.66, 2.09, 2.46, 2.83, 3.23, 3.68, 4.22], [1.68, 2.11, 2.49, 2.85, 3.26, 3.71, 4.25], [1.71, 2.14, 2.51, 2.88, 3.28, 3.74, 4.28], [1.73, 2.16, 2.54, 2.9, 3.31, 3.76, 4.3], [1.75, 2.19, 2.56, 2.93, 3.33, 3.79, 4.33], [1.78, 2.21, 2.58, 2.95, 3.36, 3.82, 4.36], [1.8, 2.23, 2.61, 2.97, 3.38, 3.84, 4.38], [1.82, 2.25, 2.63, 3.0, 3.41, 3.86, 4.41], [1.84, 2.27, 2.65, 3.02, 3.43, 3.89, 4.43], [1.86, 2.3, 2.67, 3.04, 3.45, 3.91, 4.46], [1.88, 2.32, 2.69, 3.06, 3.47, 3.94, 4.48], [1.9, 2.34, 2.72, 3.09, 3.5, 3.96, 4.51], [1.92, 2.36, 2.74, 3.11, 3.52, 3.98, 4.53], [1.94, 2.38, 2.76, 3.13, 3.54, 4.0, 4.55], [1.96, 2.4, 2.78, 3.15, 3.56, 4.02, 4.57], [1.98, 2.41, 2.8, 3.17, 3.58, 4.05, 4.59], [1.99, 2.43, 2.81, 3.19, 3.6, 4.07, 4.62], [2.01, 2.45, 2.83, 3.21, 3.62, 4.09, 4.64], [2.03, 2.47, 2.85, 3.22, 3.64, 4.11, 4.66], [2.04, 2.48, 2.87, 3.24, 3.66, 4.12, 4.68], [2.06, 2.5, 2.88, 3.26, 3.68, 4.14, 4.7], [2.08, 2.52, 2.9, 3.28, 3.69, 4.16, 4.72], [2.09, 2.53, 2.92, 3.29, 3.71, 4.18, 4.73], [2.11, 2.55, 2.93, 3.31, 3.73, 4.2, 4.75], [2.12, 2.56, 2.95, 3.33, 3.74, 4.21, 4.77], [2.13, 2.58, 2.96, 3.34, 3.76, 4.23, 4.79], [2.15, 2.59, 2.98, 3.36, 3.78, 4.25, 4.81], [2.16, 2.61, 2.99, 3.37, 3.79, 4.26, 4.82], [2.17, 2.62, 3.01, 3.39, 3.81, 4.28, 4.84], [2.19, 2.63, 3.02, 3.4, 3.82, 4.29, 4.85], [2.2, 2.64, 3.03, 3.41, 3.83, 4.31, 4.87], [2.21, 2.66, 3.05, 3.43, 3.85, 4.32, 4.88], [2.22, 2.67, 3.06, 3.44, 3.86, 4.34, 4.9], [2.23, 2.68, 3.07, 3.45, 3.87, 4.35, 4.91], [2.24, 2.69, 3.08, 3.46, 3.89, 4.36, 4.93], [2.25, 2.7, 3.09, 3.48, 3.9, 4.38, 4.94], [2.26, 2.71, 3.1, 3.49, 3.91, 4.39, 4.95], [2.27, 2.72, 3.12, 3.5, 3.92, 4.4, 4.97], [2.28, 2.73, 3.13, 3.51, 3.93, 4.41, 4.98], [2.29, 2.74, 3.14, 3.52, 3.94, 4.42, 4.99], [2.3, 2.75, 3.14, 3.53, 3.96, 4.43, 5.0]];
+
+(function(){
+  var weeksSel = document.getElementById('ga-weeks');
+  var daysSel = document.getElementById('ga-days');
+  for(var w=33; w<=42; w++){
+    var o = document.createElement('option'); o.value=w; o.textContent=w; weeksSel.appendChild(o);
+  }
+  for(var d=0; d<=6; d++){
+    var o2 = document.createElement('option'); o2.value=d; o2.textContent=d; daysSel.appendChild(o2);
+  }
+  weeksSel.value = 40; daysSel.value = 0;
+
+  function erf(x){
+    var sign = x < 0 ? -1 : 1; x = Math.abs(x);
+    var a1=0.254829592,a2=-0.284496736,a3=1.421413741,a4=-1.453152027,a5=1.061405429,p=0.3275911;
+    var t = 1/(1+p*x);
+    var y = 1-(((((a5*t+a4)*t)+a3)*t+a2)*t+a1)*t*Math.exp(-x*x);
+    return sign*y;
+  }
+  function normalCDF(z){ return 0.5*(1+erf(z/Math.SQRT2)); }
+
+  function interpZ(row, weightG){
+    var kgRow = row.map(function(v){ return v*1000; });
+    var zAnchors = [-3,-2,-1,0,1,2,3];
+    if(weightG <= kgRow[0]){
+      var slopeLo = (kgRow[1]-kgRow[0]);
+      return -3 + (weightG - kgRow[0]) / slopeLo;
+    }
+    if(weightG >= kgRow[6]){
+      var slopeHi = (kgRow[6]-kgRow[5]);
+      return 3 + (weightG - kgRow[6]) / slopeHi;
+    }
+    for(var i=0;i<6;i++){
+      if(weightG >= kgRow[i] && weightG <= kgRow[i+1]){
+        var frac = (weightG - kgRow[i]) / (kgRow[i+1]-kgRow[i]);
+        return zAnchors[i] + frac;
+      }
+    }
+    return 0;
+  }
+
+  document.getElementById('calc-btn').addEventListener('click', function(){
+    var errorEl = document.getElementById('calc-error');
+    var resultEl = document.getElementById('result');
+    errorEl.classList.remove('is-visible');
+    resultEl.classList.remove('is-visible');
+
+    var weeks = parseInt(weeksSel.value,10);
+    var days = parseInt(daysSel.value,10);
+    var weightG = parseFloat(document.getElementById('birth-weight').value);
+    var sex = document.getElementById('sex').value;
+
+    if(!weightG || weightG < 300 || weightG > 6500){
+      errorEl.classList.add('is-visible');
+      return;
+    }
+
+    var rowIndex = (weeks-33)*7 + days;
+    var table = (sex === 'boy') ? BOYS : GIRLS;
+    var row = table[rowIndex];
+    var kgRow = row.map(function(v){ return Math.round(v*1000); });
+
+    var z = interpZ(row, weightG);
+    var centile = normalCDF(z) * 100;
+    var centileDisplay;
+    if(centile < 1) centileDisplay = '< 1st centile';
+    else if(centile > 99) centileDisplay = '> 99th centile';
+    else centileDisplay = ordinal(Math.round(centile)) + ' centile';
+
+    document.getElementById('result-centile').textContent = centileDisplay;
+    var flag = '';
+    if(centile < 10) flag = ' — below the 10th centile';
+    else if(centile > 90) flag = ' — above the 90th centile';
+    document.getElementById('result-sub').textContent = weightG + ' g at ' + weeks + '+' + days + ' weeks (' + (sex==='boy'?'male':'female') + ')' + flag;
+    document.getElementById('result-z').textContent = (z>=0?'+':'') + z.toFixed(2);
+    document.getElementById('result-median').textContent = kgRow[3] + ' g';
+
+    var tr = document.getElementById('centile-row');
+    tr.innerHTML = '<td>' + kgRow[1] + ' g</td><td>' + kgRow[2] + ' g</td><td>' + kgRow[3] + ' g</td><td>' + kgRow[4] + ' g</td><td>' + kgRow[5] + ' g</td>';
+
+    resultEl.classList.add('is-visible');
+  });
+
+  function ordinal(n){
+    var s=["th","st","nd","rd"], v=n%100;
+    return n + (s[(v-20)%10]||s[v]||s[0]);
+  }
+})();
+</script>
+</body>
+</html>

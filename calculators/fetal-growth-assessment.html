@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fetal Growth Assessment | Dr Kieran McCaffrey</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,340;9..144,480;9..144,600&family=Fraunces:ital,opsz,wght@1,9..144,480&family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500;6..96,600;6..96,700&family=Bodoni+Moda:ital,opsz,wght@1,6..96,400;1,6..96,500&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../resources.css">
+</head>
+<body>
+<header class="nav">
+  <div class="nav-inner">
+    <a class="wordmark" href="../index.html">Dr Kieran <em>McCaffrey</em></a>
+    <a class="nav-cta" href="../topics/pregnancy-calculators.html">Return to Pregnancy Calculators</a>
+  </div>
+</header>
+<main>
+  <section class="page-hero">
+    <div class="wrap">
+      <span class="eyebrow">Obstetrics &middot; Growth</span>
+      <h1>Fetal Growth Assessment</h1>
+      <p>Enter ultrasound biometry to estimate fetal weight and see its centile for gestational age.</p>
+    </div>
+  </section>
+
+  <section class="calc-section">
+    <div class="wrap">
+      <div class="calc-card">
+        <h2>Ultrasound measurements</h2>
+        <div class="calc-sub">Head circumference, abdominal circumference and femur length, in millimetres.</div>
+
+        <div class="calc-row">
+          <div class="calc-field">
+            <label for="ga-weeks">Gestation — weeks</label>
+            <select id="ga-weeks"></select>
+          </div>
+          <div class="calc-field">
+            <label for="ga-days">+ days</label>
+            <select id="ga-days"></select>
+          </div>
+        </div>
+
+        <div class="calc-row">
+          <div class="calc-field">
+            <label for="hc">Head circumference <span class="calc-hint">(mm)</span></label>
+            <input type="number" id="hc" min="50" max="400" step="1" placeholder="e.g. 320">
+          </div>
+          <div class="calc-field">
+            <label for="ac">Abdominal circumference <span class="calc-hint">(mm)</span></label>
+            <input type="number" id="ac" min="50" max="450" step="1" placeholder="e.g. 330">
+          </div>
+          <div class="calc-field">
+            <label for="fl">Femur length <span class="calc-hint">(mm)</span></label>
+            <input type="number" id="fl" min="10" max="100" step="1" placeholder="e.g. 72">
+          </div>
+        </div>
+
+        <div class="calc-actions">
+          <button class="calc-btn" id="calc-btn" type="button">Calculate</button>
+        </div>
+
+        <div class="calc-error" id="calc-error">Please enter head circumference, abdominal circumference and femur length.</div>
+
+        <div class="calc-result" id="result">
+          <div class="calc-result-headline" id="result-efw"></div>
+          <div class="calc-result-sub" id="result-sub"></div>
+
+          <div class="calc-result-grid">
+            <div class="calc-stat">
+              <div class="calc-stat-label">Centile</div>
+              <div class="calc-stat-value" id="result-centile"></div>
+            </div>
+            <div class="calc-stat">
+              <div class="calc-stat-label">Z-score</div>
+              <div class="calc-stat-value" id="result-z"></div>
+            </div>
+          </div>
+
+          <table class="calc-table" id="centile-table">
+            <thead><tr><th>3rd</th><th>10th</th><th>50th</th><th>90th</th><th>97th</th></tr></thead>
+            <tbody><tr id="centile-row"></tr></tbody>
+          </table>
+          <div class="calc-note" id="out-of-range-note" style="display:none;">Centile referencing is available for 22–40 weeks only. The estimated weight above is shown without a centile for this gestation.</div>
+        </div>
+
+        <div class="calc-note"><strong>Estimate only.</strong> Sonographic weight estimation carries a margin of error of around 10–15%. A single measurement is a snapshot — growth is best assessed as a trend over serial scans, and always alongside the full clinical picture. Please discuss this result with Dr McCaffrey.</div>
+        <div class="calc-source">Estimated fetal weight formula: Hadlock FP, Harrist RB, Martinez‑Poyer J. In utero analysis of fetal growth: a sonographic weight standard. <em>Radiology</em> 1991; 181: 129–133 (HC/AC/FL method). Centile reference: Stirnemann J et al. International estimated fetal weight standards of the INTERGROWTH‑21st Project. <em>Ultrasound Obstet Gynecol</em> 2017; 49: 478–486.</div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="simple-footer">
+  <div class="wrap">&copy; 2026 Dr Kieran McCaffrey. Obstetrician &amp; Gynaecologist.</div>
+</footer>
+
+<script>
+var EFW_ROWS = [[463, 470, 481, 525, 578, 596, 607], [516, 524, 538, 592, 658, 680, 694], [575, 585, 602, 668, 751, 778, 796], [642, 654, 675, 756, 857, 891, 913], [716, 732, 757, 856, 980, 1020, 1048], [800, 818, 848, 969, 1119, 1168, 1202], [892, 915, 951, 1097, 1277, 1335, 1376], [994, 1021, 1064, 1239, 1453, 1521, 1570], [1105, 1138, 1189, 1396, 1648, 1728, 1784], [1226, 1265, 1325, 1568, 1861, 1953, 2017], [1356, 1401, 1472, 1755, 2090, 2195, 2267], [1495, 1547, 1630, 1954, 2332, 2450, 2529], [1641, 1700, 1796, 2162, 2582, 2713, 2798], [1794, 1860, 1969, 2378, 2836, 2978, 3069], [1951, 2024, 2146, 2594, 3086, 3237, 3331], [2109, 2190, 2323, 2806, 3324, 3480, 3578], [2266, 2355, 2496, 3006, 3540, 3697, 3798], [2416, 2516, 2658, 3186, 3726, 3876, 3982], [2554, 2670, 2805, 3338, 3871, 4006, 4121]]; // rows = weeks 22..40, cols = 3rd,5th,10th,50th,90th,95th,97th
+var EFW_START_WEEK = 22;
+var Z_ANCHORS = [-1.8808,-1.6449,-1.2816,0,1.2816,1.6449,1.8808];
+
+(function(){
+  var weeksSel = document.getElementById('ga-weeks');
+  var daysSel = document.getElementById('ga-days');
+  for(var w=14; w<=40; w++){
+    var o = document.createElement('option'); o.value=w; o.textContent=w; weeksSel.appendChild(o);
+  }
+  for(var d=0; d<=6; d++){
+    var o2 = document.createElement('option'); o2.value=d; o2.textContent=d; daysSel.appendChild(o2);
+  }
+  weeksSel.value = 32; daysSel.value = 0;
+
+  function erf(x){
+    var sign = x < 0 ? -1 : 1; x = Math.abs(x);
+    var a1=0.254829592,a2=-0.284496736,a3=1.421413741,a4=-1.453152027,a5=1.061405429,p=0.3275911;
+    var t = 1/(1+p*x);
+    var y = 1-(((((a5*t+a4)*t)+a3)*t+a2)*t+a1)*t*Math.exp(-x*x);
+    return sign*y;
+  }
+  function normalCDF(z){ return 0.5*(1+erf(z/Math.SQRT2)); }
+
+  function interpRow(weeks, days){
+    var frac = days/7;
+    var lowIdx = weeks - EFW_START_WEEK;
+    var hiIdx = Math.min(lowIdx+1, EFW_ROWS.length-1);
+    lowIdx = Math.max(0, Math.min(lowIdx, EFW_ROWS.length-1));
+    var lowRow = EFW_ROWS[lowIdx], hiRow = EFW_ROWS[hiIdx];
+    var row = [];
+    for(var i=0;i<7;i++){ row.push(lowRow[i] + (hiRow[i]-lowRow[i])*frac); }
+    return row;
+  }
+
+  function interpZ(row, weightG){
+    if(weightG <= row[0]){
+      var slopeLo = row[1]-row[0];
+      return Z_ANCHORS[0] + (weightG-row[0])/slopeLo * (Z_ANCHORS[1]-Z_ANCHORS[0]);
+    }
+    if(weightG >= row[6]){
+      var slopeHi = row[6]-row[5];
+      return Z_ANCHORS[6] + (weightG-row[6])/slopeHi * (Z_ANCHORS[6]-Z_ANCHORS[5]);
+    }
+    for(var i=0;i<6;i++){
+      if(weightG >= row[i] && weightG <= row[i+1]){
+        var frac = (weightG-row[i])/(row[i+1]-row[i]);
+        return Z_ANCHORS[i] + frac*(Z_ANCHORS[i+1]-Z_ANCHORS[i]);
+      }
+    }
+    return 0;
+  }
+
+  function ordinal(n){
+    var s=["th","st","nd","rd"], v=n%100;
+    return n + (s[(v-20)%10]||s[v]||s[0]);
+  }
+
+  document.getElementById('calc-btn').addEventListener('click', function(){
+    var errorEl = document.getElementById('calc-error');
+    var resultEl = document.getElementById('result');
+    var outOfRangeNote = document.getElementById('out-of-range-note');
+    var centileTable = document.getElementById('centile-table');
+    errorEl.classList.remove('is-visible');
+    resultEl.classList.remove('is-visible');
+
+    var weeks = parseInt(weeksSel.value,10);
+    var days = parseInt(daysSel.value,10);
+    var hcMm = parseFloat(document.getElementById('hc').value);
+    var acMm = parseFloat(document.getElementById('ac').value);
+    var flMm = parseFloat(document.getElementById('fl').value);
+
+    if(!hcMm || !acMm || !flMm){
+      errorEl.classList.add('is-visible');
+      return;
+    }
+
+    var hc = hcMm/10, ac = acMm/10, fl = flMm/10; // cm
+    var log10w = 1.326 - 0.00326*(ac*fl) + 0.0107*hc + 0.0438*ac + 0.158*fl;
+    var efw = Math.pow(10, log10w);
+    var efwRounded = Math.round(efw);
+
+    document.getElementById('result-efw').textContent = efwRounded.toLocaleString() + ' g';
+
+    var inRange = (weeks >= 22 && weeks <= 40);
+    if(inRange){
+      var row = interpRow(weeks, days);
+      var z = interpZ(row, efwRounded);
+      var centile = normalCDF(z) * 100;
+      var centileDisplay;
+      if(centile < 1) centileDisplay = '< 1st';
+      else if(centile > 99) centileDisplay = '> 99th';
+      else centileDisplay = ordinal(Math.round(centile));
+      document.getElementById('result-centile').textContent = centileDisplay;
+      document.getElementById('result-z').textContent = (z>=0?'+':'') + z.toFixed(2);
+
+      var flag = '';
+      if(centile < 10) flag = ' — below the 10th centile';
+      else if(centile > 90) flag = ' — above the 90th centile';
+      document.getElementById('result-sub').textContent = 'At ' + weeks + '+' + days + ' weeks' + flag;
+
+      var tr = document.getElementById('centile-row');
+      tr.innerHTML = '<td>' + Math.round(row[0]) + ' g</td><td>' + Math.round(row[2]) + ' g</td><td>' + Math.round(row[3]) + ' g</td><td>' + Math.round(row[4]) + ' g</td><td>' + Math.round(row[6]) + ' g</td>';
+      centileTable.style.display = '';
+      outOfRangeNote.style.display = 'none';
+    } else {
+      document.getElementById('result-centile').textContent = '—';
+      document.getElementById('result-z').textContent = '—';
+      document.getElementById('result-sub').textContent = 'At ' + weeks + '+' + days + ' weeks';
+      centileTable.style.display = 'none';
+      outOfRangeNote.style.display = '';
+    }
+
+    resultEl.classList.add('is-visible');
+  });
+})();
+</script>
+</body>
+</html>

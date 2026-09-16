@@ -1,0 +1,1711 @@
+<title>Dr Kieran McCaffrey</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,340;9..144,480;9..144,600&family=Fraunces:ital,opsz,wght@1,9..144,480&family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500;6..96,600;6..96,700&family=Bodoni+Moda:ital,opsz,wght@1,6..96,400;1,6..96,500&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F8F2E8;
+    --surface:#EFE4D3;
+    --surface-2:#F5ECDF;
+    --ink:#46392C;
+    --ink-soft:#9C8A70;
+    --navy:#AF7856;
+    --navy-deep:#55392A;
+    --monitor:#9C8058;
+    --monitor-soft:#F1E9D9;
+    --line:rgba(59,49,38,0.14);
+    --line-strong:rgba(59,49,38,0.28);
+    --card-shadow:0 1px 2px rgba(59,49,38,0.08), 0 12px 28px -16px rgba(59,49,38,0.28);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#221A13;
+      --surface:#34281C;
+      --surface-2:#2B2116;
+      --ink:#F2E7D8;
+      --ink-soft:#C9B79C;
+      --navy:#D9A182;
+      --navy-deep:#140D08;
+      --monitor:#C7A876;
+      --monitor-soft:#3A2E1E;
+      --line:rgba(242,231,216,0.14);
+      --line-strong:rgba(242,231,216,0.26);
+      --card-shadow:0 1px 2px rgba(0,0,0,0.3), 0 16px 34px -18px rgba(0,0,0,0.6);
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#221A13;
+    --surface:#34281C;
+    --surface-2:#2B2116;
+    --ink:#F2E7D8;
+    --ink-soft:#C9B79C;
+    --navy:#D9A182;
+    --navy-deep:#140D08;
+    --monitor:#C7A876;
+    --monitor-soft:#3A2E1E;
+    --line:rgba(242,231,216,0.14);
+    --line-strong:rgba(242,231,216,0.26);
+    --card-shadow:0 1px 2px rgba(0,0,0,0.3), 0 16px 34px -18px rgba(0,0,0,0.6);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Work Sans", ui-sans-serif, system-ui, sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    padding-inline:0;
+  }
+  img{max-width:100%; display:block;}
+  a{color:inherit;}
+  h1,h2,h3{
+    font-family:"Fraunces", Georgia, serif;
+    font-weight:600;
+    text-wrap:balance;
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+  .eyebrow{
+    font-family:"IBM Plex Mono", ui-monospace, monospace;
+    font-size:0.72rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--monitor);
+    font-weight:500;
+  }
+  .wrap{
+    max-width:1180px;
+    margin-inline:auto;
+    padding-inline:24px;
+  }
+  section{padding-block:clamp(48px,8vw,96px);}
+  :focus-visible{outline:2px solid var(--monitor); outline-offset:3px;}
+
+  /* ---------- Nav ---------- */
+  .nav{
+    position:sticky; top:0; z-index:40;
+    background:color-mix(in srgb, var(--paper) 88%, transparent);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    max-width:1180px; margin-inline:auto; padding-inline:24px;
+    display:flex; align-items:center; justify-content:space-between;
+    height:72px; gap:16px;
+  }
+  .wordmark{
+    font-family:"Bodoni Moda", Georgia, serif; font-weight:600; font-size:1.15rem;
+    letter-spacing:-0.01em; text-decoration:none; color:var(--navy);
+    flex-shrink:0;
+  }
+  .wordmark em{ font-style:normal; color:var(--navy);}
+  .nav-titles{
+    display:flex; gap:8px; align-items:center; flex-wrap:wrap;
+    font-family:"Bodoni Moda", Georgia, serif;
+    font-size:0.92rem; font-weight:600; color:color-mix(in srgb, var(--ink) 40%, var(--ink-soft) 60%);
+  }
+  .nav-titles span[aria-hidden="true"]{ color:var(--line-strong); }
+  .nav-cta{
+    display:inline-flex; align-items:center; gap:8px;
+    background:var(--navy); color:var(--paper);
+    font-weight:600; font-size:0.86rem;
+    padding:10px 18px; border-radius:999px; text-decoration:none;
+    white-space:nowrap;
+    transition:transform .15s ease, opacity .15s ease;
+  }
+  .nav-cta:hover{opacity:0.88;}
+  .nav-actions{ display:flex; align-items:center; gap:14px; flex-shrink:0; }
+  .social-icon{
+    display:inline-flex; align-items:center; justify-content:center;
+    width:38px; height:38px; border-radius:50%;
+    color:var(--ink); border:1px solid var(--line-strong);
+    flex-shrink:0; transition:color .15s ease, border-color .15s ease, background-color .15s ease;
+  }
+  .social-icon svg{ width:19px; height:19px; }
+  .social-icon:hover{ color:var(--monitor); border-color:var(--monitor); background:var(--monitor-soft); }
+  .menu-dropdown{ position:relative; flex-shrink:0; }
+  .menu-dropdown-btn{
+    display:inline-flex; align-items:center; gap:8px;
+    background:#FAF6EC; color:var(--ink);
+    border:1px solid var(--line-strong);
+    font-weight:600; font-size:0.86rem;
+    padding:9px 17px; border-radius:999px;
+    list-style:none; cursor:pointer; white-space:nowrap;
+    transition:opacity .15s ease;
+  }
+  .menu-dropdown-btn::-webkit-details-marker{ display:none; }
+  .menu-dropdown-btn:hover{ opacity:0.88; }
+  .menu-dropdown-btn svg{ width:12px; height:12px; flex-shrink:0; transition:transform .15s ease; }
+  .menu-dropdown[open] .menu-dropdown-btn svg{ transform:rotate(180deg); }
+  .menu-dropdown-panel{
+    position:absolute; right:0; top:calc(100% + 10px); z-index:50;
+    background:var(--paper); border:1px solid var(--line); border-radius:14px;
+    box-shadow:var(--card-shadow); padding:10px; min-width:260px;
+    display:grid; gap:2px;
+  }
+  .menu-dropdown-panel a{
+    text-decoration:none; color:var(--ink); font-size:0.95rem; font-weight:500;
+    padding:11px 12px; border-radius:8px; white-space:nowrap;
+  }
+  .menu-dropdown-panel a:hover{ background:var(--surface); }
+  @media (max-width:900px){
+    .nav-titles{display:none;}
+  }
+  @media (max-width:760px){
+    .nav-inner{ gap:10px; padding-inline:16px; }
+    .wordmark{ font-size:1rem; }
+    .nav-cta{ padding:9px 14px; font-size:0.8rem; }
+    .nav-actions{ gap:8px; }
+    .social-icon{ width:36px; height:36px; }
+    .social-icon svg{ width:18px; height:18px; }
+    .menu-dropdown-btn{ padding:9px 14px; font-size:0.8rem; }
+  }
+  @media (max-width:430px){
+    .nav-inner{ gap:6px; padding-inline:12px; }
+    .wordmark{ font-size:0.86rem; }
+    .nav-actions{ gap:6px; }
+    .social-icon{ display:none; }
+    .nav-cta{ padding:8px 12px; font-size:0.76rem; }
+    .menu-dropdown-btn{ padding:8px 12px; font-size:0.76rem; gap:5px; }
+  }
+
+  /* ---------- Buttons ---------- */
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:10px;
+    padding:14px 26px; border-radius:999px;
+    font-weight:600; font-size:0.95rem; text-decoration:none;
+    border:1px solid transparent; cursor:pointer;
+    transition:transform .15s ease, opacity .15s ease, background-color .15s ease;
+  }
+  .btn:hover{transform:translateY(-1px);}
+  .btn-solid{ background:#FAF6EC; color:var(--ink); border-color:var(--line-strong); }
+  .btn-solid:hover{ opacity:0.88; }
+  .btn-ghost-invert{ background:rgba(255,255,255,0.08); color:#fff; border-color:rgba(255,255,255,0.55); backdrop-filter:blur(6px);}
+  .btn-ghost-invert:hover{ background:rgba(255,255,255,0.16); }
+  .btn-outline{ background:transparent; color:var(--ink); border-color:var(--line-strong); }
+  .btn-outline:hover{ background:var(--surface); }
+  .btn-navy{ background:var(--navy); color:var(--paper); }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative;
+    min-height:min(92vh, 800px);
+    display:flex; align-items:flex-end;
+    overflow:hidden;
+    padding-block:0;
+    isolation:isolate;
+  }
+  .hero-media{
+    position:absolute; inset:0; z-index:0;
+    width:100%; height:100%;
+    object-fit:cover;
+    background:var(--navy-deep);
+    transform-origin:center center;
+    animation:hero-zoom-out 22s ease-in-out infinite alternate;
+  }
+  @keyframes hero-zoom-out{
+    from{ transform:scale(1.06); }
+    to{ transform:scale(1.0); }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .hero-media{ animation:none; }
+  }
+  .hero-scrim{
+    position:absolute; inset:0; z-index:1;
+    background:
+      linear-gradient(180deg, rgba(24,10,8,0.58) 0%, rgba(24,10,8,0.38) 32%, rgba(24,10,8,0.80) 100%),
+      linear-gradient(90deg, rgba(24,10,8,0.58) 0%, rgba(24,10,8,0.12) 55%);
+  }
+  .hero-content{
+    position:relative; z-index:2;
+    max-width:1180px; margin-inline:auto; width:100%;
+    padding:24px; padding-block:56px clamp(40px,7vw,72px);
+    color:#F5EEE1;
+  }
+  .hero-eyebrow{
+    font-family:"IBM Plex Mono", monospace; font-size:0.74rem;
+    letter-spacing:0.16em; text-transform:uppercase;
+    color:#E8CBA0; margin-bottom:18px; display:flex; align-items:center; gap:10px;
+  }
+  .hero-eyebrow::before{
+    content:""; width:7px; height:7px; border-radius:50%; background:#E8CBA0;
+    box-shadow:0 0 0 4px rgba(232,203,160,0.25);
+  }
+  .hero h1{
+    font-size:clamp(2.4rem, 5.4vw, 4.2rem);
+    line-height:1.04;
+    max-width:14ch;
+    color:#fff;
+  }
+  .hero h1 em{ font-style:italic; font-weight:480; color:#E8CBA0; }
+  .hero p.lede{
+    margin-top:22px; max-width:46ch;
+    font-size:1.08rem; color:rgba(245,238,225,0.86);
+  }
+  .hero-actions{ display:flex; flex-wrap:wrap; gap:14px; margin-top:34px; }
+  .hero-note{
+    margin-top:28px; font-size:0.82rem; color:rgba(245,238,225,0.65);
+    font-family:"IBM Plex Mono", monospace; letter-spacing:0.02em;
+  }
+
+  /* ---------- Trust strip ---------- */
+  .trust{
+    border-bottom:1px solid var(--line);
+    background:var(--surface-2);
+  }
+  .trust .wrap{
+    padding-block:22px;
+    display:flex; flex-wrap:wrap; align-items:center; gap:14px 28px;
+  }
+  .trust-label{
+    font-family:"IBM Plex Mono", monospace; font-size:0.72rem;
+    letter-spacing:0.12em; text-transform:uppercase; color:var(--navy);
+    flex-shrink:0;
+  }
+  .trust:first-of-type{ margin-top:32px; margin-bottom:14px; }
+  .trust:last-of-type{ margin-bottom:32px; }
+  .trust-list{
+    display:flex; flex-wrap:wrap; gap:10px 26px; list-style:none; margin:0; padding:0;
+    font-size:0.92rem; color:var(--ink); font-weight:500;
+  }
+  .trust-list li{ position:relative; padding-left:16px; }
+  .trust-list li::before{
+    content:""; position:absolute; left:0; top:50%; translate:0 -50%;
+    width:5px; height:5px; border-radius:50%; background:var(--monitor);
+  }
+
+  /* ---------- Section heads ---------- */
+  .section-head{ max-width:640px; margin-bottom:44px; }
+  .section-head h2{ font-size:clamp(1.7rem, 3.2vw, 2.4rem); margin-top:12px; }
+  .section-head p{ color:var(--ink-soft); margin-top:14px; font-size:1.02rem; }
+  #care .section-head h2, #care .feature-body h3, #womens-health .section-head h2, #womens-health .feature-body h3, .meet-copy h2, .reviews-head h2{ color:var(--navy); }
+  .feature-media img.grayscale{ filter:grayscale(100%); }
+  #resources .section-head{ margin-bottom:32px; }
+  #resources .section-head h2{ color:var(--navy); margin-top:0; }
+  #resources .feature-body .eyebrow{ font-size:1.15rem; letter-spacing:0.06em; }
+  #resources .feature-body h3{ margin-bottom:0; font-size:1.25rem; font-weight:500; }
+  #resources .feature-body h3 a{ color:var(--navy); font-style:italic; text-decoration:none; }
+  #resources .feature-body h3 a:hover{ text-decoration:underline; }
+
+  /* ---------- Feature cards (Obstetrics / Gynaecology) ---------- */
+  .features-grid{
+    display:grid; grid-template-columns:1fr 1fr; gap:28px;
+  }
+  .feature-card{
+    background:var(--surface); border-radius:22px; overflow:hidden;
+    box-shadow:var(--card-shadow);
+    display:flex; flex-direction:column;
+  }
+  .feature-media{ aspect-ratio:4/3; overflow:hidden; }
+  .feature-media img{ width:100%; height:100%; object-fit:cover; }
+  .feature-body{ padding:30px 30px 34px; }
+  .feature-body .eyebrow{ margin-bottom:10px; display:block; }
+  .feature-body h3{ font-size:1.4rem; margin-bottom:14px; }
+  .feature-body p{ color:var(--ink-soft); margin:0 0 10px; }
+  .feature-body p:last-child{ margin-bottom:0; }
+  @media (max-width:820px){
+    .features-grid{ grid-template-columns:1fr; }
+  }
+
+  /* ---------- Meet section (video) ---------- */
+  .meet{ background:var(--surface-2); border-block:1px solid var(--line); }
+  .meet-grid{
+    display:grid; gap:32px; max-width:760px; margin-inline:auto;
+  }
+  .meet-copy p{ color:var(--ink-soft); margin-top:16px; }
+  .meet-copy h2{ margin-top:12px; }
+  .meet-points{ display:grid; gap:20px; }
+  .meet-point-title{ font-size:1.5rem; color:var(--navy); }
+  .meet-point-text{ margin:8px 0 0; color:var(--ink-soft); }
+  .video-frame{
+    position:relative; border-radius:22px; overflow:hidden;
+    box-shadow:var(--card-shadow); background:#000; aspect-ratio:16/9;
+  }
+  .video-frame video{ width:100%; height:100%; object-fit:cover; display:block; }
+  .video-frame iframe{ width:100%; height:100%; border:0; display:block; }
+  .video-frame.video-placeholder{
+    display:flex; align-items:center; justify-content:center;
+    text-decoration:none; color:#fff;
+    background:linear-gradient(160deg, var(--navy-deep), var(--navy));
+    transition:opacity .15s ease;
+  }
+  .video-frame.video-placeholder:hover{ opacity:0.9; }
+  .video-placeholder-inner{ display:flex; flex-direction:column; align-items:center; gap:14px; text-align:center; padding:24px; }
+  .video-play-badge{
+    width:74px; height:74px; border-radius:50%; flex-shrink:0;
+    background:rgba(255,255,255,0.14); border:1px solid rgba(255,255,255,0.42);
+  display:flex; align-items:center; justify-content:center;
+  }
+  .video-play-badge svg{ width:28px; height:28px; margin-left:3px; fill:#fff; }
+  .video-placeholder-label{ font-weight:600; font-size:1.02rem; }
+  .video-placeholder-label small{ display:block; margin-top:5px; font-weight:500; opacity:0.75; font-size:0.78rem; font-family:"IBM Plex Mono", monospace; letter-spacing:0.04em; }
+  @media (max-width:900px){
+    .meet-grid{ max-width:480px; }
+  }
+
+  /* ---------- Locations ---------- */
+  .locations-grid{
+    display:grid; grid-template-columns:1fr 1fr; gap:28px;
+  }
+  .location-card{
+    border:1px solid var(--line); border-radius:22px; background:var(--paper);
+    padding:32px; box-shadow:var(--card-shadow);
+    display:flex; flex-direction:column; gap:18px;
+  }
+  .location-top{ display:flex; align-items:flex-start; justify-content:space-between; gap:16px; }
+  .location-pin{
+    width:44px; height:44px; border-radius:12px; background:var(--monitor-soft);
+    display:flex; align-items:center; justify-content:center; flex-shrink:0;
+  }
+  .location-pin svg{ width:22px; height:22px; stroke:var(--monitor); }
+  .location-tag{
+    font-family:"IBM Plex Mono", monospace; font-size:0.68rem; letter-spacing:0.1em;
+    text-transform:uppercase; color:var(--ink-soft); border:1px solid var(--line-strong);
+    padding:5px 10px; border-radius:999px;
+  }
+  .location-card h3{ font-size:1.32rem; }
+  .location-org{ color:var(--monitor); font-weight:600; font-size:0.9rem; }
+  .location-detail{ color:var(--ink-soft); font-size:0.95rem; line-height:1.65; }
+  .location-detail strong{ color:var(--ink); font-weight:600; }
+  .location-actions{ display:flex; flex-wrap:wrap; gap:10px; margin-top:auto; padding-top:6px; }
+  @media (max-width:820px){
+    .locations-grid{ grid-template-columns:1fr; }
+  }
+
+  /* ---------- About ---------- */
+  .about-grid{
+    display:grid; grid-template-columns:0.85fr 1.15fr; gap:52px; align-items:center;
+  }
+  .about-portrait{
+    border-radius:22px; overflow:hidden; box-shadow:var(--card-shadow);
+    aspect-ratio:4/5;
+  }
+  .about-portrait img{ width:100%; height:100%; object-fit:cover; }
+  .about-copy h2{ margin-top:12px; color:var(--navy); }
+  .about-copy p{ color:var(--ink-soft); margin-top:16px; }
+  .about-creds{
+    display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:28px;
+    padding-top:24px; border-top:1px solid var(--line);
+  }
+  .about-creds div span{ display:block; }
+  .about-creds .num-label{
+    font-family:"IBM Plex Mono", monospace; font-size:0.68rem; letter-spacing:0.1em;
+    text-transform:uppercase; color:var(--ink-soft);
+  }
+  .about-creds .num-value{ font-family:"Fraunces", serif; font-size:1.05rem; margin-top:4px; font-weight:600;}
+  @media (max-width:900px){
+    .about-grid{ grid-template-columns:1fr; }
+    .about-portrait{ max-width:360px; margin-inline:auto; }
+  }
+
+  /* ---------- Reviews ---------- */
+  .reviews-head{
+    display:flex; align-items:flex-end; justify-content:space-between;
+    gap:24px; flex-wrap:wrap; margin-bottom:0;
+  }
+  .reviews-nav{ display:flex; gap:10px; flex-shrink:0; }
+  .reviews-arrow{
+    width:44px; height:44px; border-radius:50%; flex-shrink:0;
+    background:var(--paper); border:1px solid var(--line-strong);
+    color:var(--ink); display:flex; align-items:center; justify-content:center;
+    cursor:pointer; transition:background-color .15s ease, color .15s ease, border-color .15s ease;
+  }
+  .reviews-arrow svg{ width:18px; height:18px; }
+  .reviews-arrow:hover{ background:var(--monitor); border-color:var(--monitor); color:#F5EFE4; }
+  .reviews-track{
+    display:flex; gap:22px; margin-top:38px;
+    overflow-x:auto; scroll-snap-type:x mandatory; scroll-padding-left:2px;
+    padding-bottom:8px; margin-inline:-24px; padding-inline:24px;
+    -webkit-overflow-scrolling:touch;
+  }
+  .reviews-track::-webkit-scrollbar{ height:0; }
+  .review-card{
+    scroll-snap-align:start; flex:0 0 auto;
+    width:min(340px, 82vw);
+    background:var(--paper); border-radius:22px; border:1px solid var(--line);
+    box-shadow:var(--card-shadow); padding:28px;
+    display:flex; flex-direction:column; gap:16px;
+  }
+  .review-stars{ display:flex; gap:3px; color:var(--monitor); }
+  .review-stars svg{ width:16px; height:16px; }
+  .review-quote{ color:var(--ink); font-size:0.98rem; line-height:1.6; flex-grow:1; }
+  .review-meta{ display:flex; align-items:center; gap:12px; padding-top:8px; border-top:1px solid var(--line); }
+  .review-avatar{
+    width:38px; height:38px; border-radius:50%; background:var(--monitor-soft);
+    color:var(--monitor); display:flex; align-items:center; justify-content:center;
+    font-family:"Fraunces", serif; font-weight:600; font-size:0.95rem; flex-shrink:0;
+  }
+  .review-who{ display:grid; }
+  .review-name{ font-weight:600; font-size:0.92rem; }
+  .review-source{ font-size:0.78rem; color:var(--ink-soft); display:flex; align-items:center; gap:5px; }
+  .review-source svg{ width:12px; height:12px; }
+  @media (max-width:600px){
+    .reviews-nav{ display:none; }
+  }
+
+  /* ---------- Contact ---------- */
+  .contact-panel{
+    background:var(--navy); color:var(--paper);
+    border-radius:28px; padding:clamp(40px,6vw,64px);
+    display:grid; grid-template-columns:0.95fr 1.05fr; gap:48px;
+  }
+  .contact-intro h2{ color:#fff; font-size:clamp(1.7rem,3.2vw,2.4rem); }
+  .contact-intro h2 em{ font-style:italic; font-weight:480; color:#F3CEB3; }
+  .contact-intro > p{ color:rgba(249,246,240,0.75); margin-top:14px; max-width:42ch; }
+  .contact-details{ list-style:none; margin:28px 0 0; padding:0; display:grid; gap:10px; }
+  .contact-details li{ font-size:0.95rem; color:rgba(249,246,240,0.92); display:flex; gap:8px; flex-wrap:wrap; }
+  .contact-details li strong{ font-weight:600; color:#fff; min-width:80px; }
+  .contact-details a{ color:inherit; text-decoration:underline; text-underline-offset:2px; }
+  .contact-form{ display:grid; gap:16px; align-content:start; }
+  .contact-form .form-hp{ position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden; }
+  .contact-form .form-field{ display:flex; flex-direction:column; gap:7px; }
+  .contact-form label{ font-size:0.85rem; font-weight:600; color:rgba(249,246,240,0.9); }
+  .contact-form label span[aria-hidden]{ color:#fff; margin-left:2px; }
+  .contact-form label span.optional{ font-weight:400; color:rgba(249,246,240,0.6); }
+  .contact-form input, .contact-form textarea{
+    font:inherit; font-size:0.95rem; padding:12px 14px; border-radius:10px;
+    border:1px solid rgba(249,246,240,0.28); background:rgba(249,246,240,0.94); color:var(--ink);
+  }
+  .contact-form input:focus, .contact-form textarea:focus{
+    outline:2px solid #fff; outline-offset:1px;
+  }
+  .contact-form textarea{ resize:vertical; min-height:96px; font-family:inherit; }
+  .contact-consent{
+    display:flex; gap:10px; align-items:flex-start; font-size:0.84rem;
+    color:rgba(249,246,240,0.78); line-height:1.5; cursor:pointer;
+  }
+  .contact-consent input{ width:auto; margin-top:3px; accent-color:#fff; flex-shrink:0; }
+  @media (max-width:820px){
+    .contact-panel{ grid-template-columns:1fr; }
+  }
+
+  /* ---------- CTA banner ---------- */
+  .cta-banner{
+    background:var(--navy); color:var(--paper);
+    border-radius:28px; margin:0 24px; padding:clamp(40px,6vw,64px) clamp(24px,6vw,64px);
+    display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:24px;
+  }
+  .cta-banner h2{ color:#fff; font-size:clamp(1.5rem,3vw,2rem); max-width:22ch; }
+  .cta-banner p{ color:rgba(249,246,240,0.75); margin-top:10px; max-width:40ch; }
+
+  /* ---------- Footer ---------- */
+  footer{ padding-block:56px 40px; }
+  .footer-grid{
+    display:grid; grid-template-columns:1.3fr 1fr 1fr; gap:36px;
+    padding-bottom:32px; border-bottom:1px solid var(--line);
+  }
+  .footer-brand .wordmark{ font-size:1.25rem; }
+  .footer-brand p{ color:var(--ink-soft); margin-top:12px; max-width:32ch; font-size:0.92rem; }
+  .footer-col h4{
+    font-family:"IBM Plex Mono", monospace; font-size:0.7rem; letter-spacing:0.1em;
+    text-transform:uppercase; color:var(--ink-soft); margin:0 0 14px;
+  }
+  .footer-col ul{ list-style:none; margin:0; padding:0; display:grid; gap:9px; }
+  .footer-col a{ text-decoration:none; color:var(--ink); font-size:0.94rem; }
+  .footer-col a:hover{ color:var(--monitor); }
+  .footer-bottom{
+    display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:16px;
+    padding-top:24px; font-size:0.82rem; color:var(--ink-soft);
+  }
+  .footer-bottom-text{ display:flex; flex-wrap:wrap; gap:4px 12px; }
+  .footer-bottom .social-icon{ width:34px; height:34px; }
+  .footer-bottom .social-icon svg{ width:17px; height:17px; }
+  @media (max-width:760px){
+    .footer-grid{ grid-template-columns:1fr 1fr; }
+    .footer-brand{ grid-column:1 / -1; }
+  }
+
+  /* ---------- Draft badge ---------- */
+  .draft-badge{
+    position:fixed; right:16px; bottom:16px; z-index:60;
+    background:var(--ink); color:var(--paper);
+    font-family:"IBM Plex Mono", monospace; font-size:0.68rem; letter-spacing:0.04em;
+    padding:8px 13px; border-radius:999px; opacity:0.82;
+    box-shadow:0 8px 20px -8px rgba(0,0,0,0.4);
+  }
+  @media (max-width:600px){ .draft-badge{ display:none; } }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    .btn:hover{ transform:none; }
+  }
+</style>
+
+<a class="skip-link" href="#main" style="position:absolute;left:-9999px;top:0;background:var(--ink);color:var(--paper);padding:10px 16px;border-radius:0 0 8px 0;z-index:100;">Skip to content</a>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="wordmark" href="#main">Dr Kieran <em>McCaffrey</em></a>
+    <div class="nav-titles">
+      <span>Obstetrician</span><span aria-hidden="true">+</span>
+      <span>Gynaecologist</span><span aria-hidden="true">+</span>
+      <span>Robotic Surgeon</span>
+    </div>
+    <div class="nav-actions">
+      <details class="menu-dropdown">
+        <summary class="menu-dropdown-btn" aria-label="Open site menu">
+          Menu
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </summary>
+        <nav class="menu-dropdown-panel">
+          <a href="#about">About Dr McCaffrey</a>
+          <a href="#meet">Introduction</a>
+          <a href="#care">Obstetrics / Gynaecology</a>
+          <a href="#womens-health">Holistic Womens Health</a>
+          <a href="#resources">Resources</a>
+          <a href="#reviews">Patient Reviews</a>
+          <a href="#locations">Consulting Rooms</a>
+          <a href="#contact">Contact</a>
+          <a href="#new-patient">New Patient Form</a>
+        </nav>
+      </details>
+      <a class="social-icon" href="https://www.instagram.com/kieranmccaffrey/" target="_blank" rel="noopener" aria-label="Dr Kieran McCaffrey on Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg>
+      </a>
+      <a class="nav-cta" href="#contact">Contact <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;flex-shrink:0;" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="hero">
+    <video class="hero-media" autoplay muted loop playsinline poster="media/hero-poster.jpg" aria-hidden="true">
+      <source src="media/hero-bg.mp4" type="video/mp4">
+    </video>
+    <div class="hero-scrim"></div>
+    <div class="hero-content">
+      <h1>Every heartbeat, <em>held&nbsp;with&nbsp;care.</em></h1>
+      <p class="lede">Dr Kieran McCaffrey provides obstetric and gynaecological care across Sydney — from routine pregnancy and normal birth to complex, high‑risk care and minimally invasive surgery.</p>
+    </div>
+  </section>
+
+  <div class="trust">
+    <div class="wrap">
+      <span class="trust-label">Hospitals</span>
+      <ul class="trust-list">
+        <li>Royal North Shore Hospital</li>
+        <li>North Shore Private</li>
+        <li>The Mater Hospital</li>
+        <li>St Vincent's Hospital</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="trust">
+    <div class="wrap">
+      <span class="trust-label">Consulting rooms</span>
+      <ul class="trust-list">
+        <li>North Shore Private Hospital</li>
+        <li>Double Bay Medical Centre</li>
+      </ul>
+    </div>
+  </div>
+
+  <section id="about" style="background:var(--surface-2); border-block:1px solid var(--line);">
+    <div class="wrap">
+      <div class="about-grid">
+        <div class="about-portrait"><img src="media/about-portrait.jpg" alt="Dr Kieran McCaffrey" loading="lazy"></div>
+        <div class="about-copy">
+          <span class="eyebrow">About</span>
+          <h2>There for you <em>at every stage</em></h2>
+          <p>Dr McCaffrey manages both normal and high‑risk pregnancies, alongside a strong interest in advanced minimally invasive gynaecological surgery. He has been appointed a Consultant VMO at Royal North Shore Hospital (Public), North Shore Private, The Mater Hospital and St Vincent's Hospital.</p>
+          <p>Outside the clinic, he volunteers with Street Side Medics, providing healthcare to people experiencing homelessness, Surf Life Saving Clubs and serves as a Medical Officer with the Army Reserve.</p>
+          <div class="about-creds">
+            <div><span class="num-label">Medical Degree</span><span class="num-value">University of Notre Dame</span></div>
+            <div><span class="num-label">Master of Surgery</span><span class="num-value">University of Sydney</span></div>
+            <div><span class="num-label">Fellowship</span><span class="num-value">St Vincent's, Darlinghurst</span></div>
+            <div><span class="num-label">Surgical System</span><span class="num-value">Da&nbsp;Vinci — Proctor</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="meet" id="meet">
+    <div class="wrap">
+      <div class="meet-grid">
+        <div class="meet-copy">
+          <span class="eyebrow">Meet Dr McCaffrey</span>
+          <h2>A short introduction, in his own words.</h2>
+          <p>Dr McCaffrey trained through Royal North Shore Hospital and completed a Master of Surgery at the University of Sydney, with fellowship training in minimally invasive gynaecological surgery at St Vincent's Hospital, Darlinghurst.</p>
+        </div>
+        <div class="video-frame">
+          <iframe src="https://www.youtube.com/embed/QVWEAp9094U?si=GPpSkPfdzrYv2UWa" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <div class="meet-points">
+          <div class="meet-point">
+            <h3 class="meet-point-title">Manages both normal and high-risk pregnancies:</h3>
+            <p class="meet-point-text">Dr McCaffrey is able to deliver your baby at either the most prestigious private hospitals or a major tertiary public hospital capable of managing pre‑term birth and complex pregnancies.</p>
+          </div>
+          <div class="meet-point">
+            <h3 class="meet-point-title">Experienced in advanced surgical procedures:</h3>
+            <p class="meet-point-text">Including being extensively trained using the Da Vinci robotic surgical system to manage advanced cases of endometriosis, heavy menstrual bleeding and complex hysterectomy. Dr McCaffrey has been designated a specialist proctor and is flown interstate to train other surgeons.</p>
+          </div>
+          <div class="meet-point">
+            <h3 class="meet-point-title">Provides holistic women's health care:</h3>
+            <p class="meet-point-text">Dr McCaffrey integrates midwives, lactation consultants, women's pelvic floor physiotherapists, naturopaths and allied health into his practice.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="care">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Areas of care: Obstetrics &amp; Gynaecology</span>
+        <h2>Two disciplines, one continuity of care.</h2>
+        <p>Whether you're navigating a pregnancy or a gynaecological condition, care is delivered personally — the same doctor, from first consult through to delivery or recovery.</p>
+      </div>
+      <div class="features-grid">
+        <article class="feature-card">
+          <div class="feature-media"><img src="media/newborn.jpg" alt="Newborn baby resting, moments after delivery" loading="lazy"></div>
+          <div class="feature-body">
+            <span class="eyebrow">Obstetrics</span>
+            <h3>Pregnancy &amp; birth</h3>
+            <p>Pregnancy is a unique and special time. Dr McCaffrey advocates for normal birth, and holds the training and expertise to manage pregnancies complicated by high‑risk obstetric and medical conditions.</p>
+            <p>Birth is a personal experience — informed choice, and a safe, happy outcome for mother and baby, guide every decision.</p>
+          </div>
+        </article>
+        <article class="feature-card">
+          <div class="feature-media"><img src="media/robot.jpg" alt="Da Vinci robotic-assisted surgical system" loading="lazy"></div>
+          <div class="feature-body">
+            <span class="eyebrow">Gynaecology</span>
+            <h3>Minimally invasive surgery</h3>
+            <p>Extensively trained on the Da Vinci robotic‑assisted surgical system, Dr McCaffrey treats complex pelvic conditions — including endometriosis and heavy menstrual bleeding — and serves as a surgical proctor for other specialists.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="womens-health">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Women's Health, <em>holistically</em></h2>
+        <p>Great outcomes rely on more than the delivery room — a trusted circle of allied health professionals who work alongside Dr McCaffrey throughout pregnancy and beyond. Our midwife and women's health physiotherapist both consult out of Dr McCaffrey's rooms, working alongside him to support you.</p>
+      </div>
+      <div class="features-grid">
+        <article class="feature-card">
+          <div class="feature-media"><img class="grayscale" src="media/wolfe-cub-tahlia.jpg" alt="Tahlia, midwife at Wolfe &amp; Cub" loading="lazy" style="object-position:center 0%;"></div>
+          <div class="feature-body">
+            <span class="eyebrow">Tahlia : Wolfe &amp; Cub</span>
+            <h3>Midwifery support before &amp; after birth</h3>
+            <p>Ongoing midwifery input before and after delivery makes a real difference to how supported you feel through pregnancy and the fourth trimester. Tahlia runs boutique, personalised antenatal classes and breastfeeding / lactation support, alongside daily bulk billed — free — midwifery telehealth support.</p>
+          </div>
+        </article>
+        <article class="feature-card">
+          <div class="feature-media"><img class="grayscale" src="media/kate-leslie-physio.jpg" alt="Kate Leslie, Women's Health Physiotherapist" loading="lazy"></div>
+          <div class="feature-body">
+            <span class="eyebrow">Kate Leslie</span>
+            <h3>Women's Health Physiotherapy</h3>
+            <p>Good management of the pelvic floor matters both during pregnancy and in the treatment of pelvic pain conditions. Kate provides specialised women's health physiotherapy to support patients through these stages with expert, individualised care.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="resources">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Resources</h2>
+      </div>
+      <div class="features-grid">
+        <article class="feature-card">
+          <div class="feature-media"><img src="media/delivery-resource.jpg" alt="Pregnancy and birth resources" loading="lazy" style="object-position:center 12%;"></div>
+          <div class="feature-body">
+            <span class="eyebrow">Obstetrics</span>
+            <h3><a href="resources-obstetrics.html">Click here for helpful information regarding pregnancy and birth</a></h3>
+          </div>
+        </article>
+        <article class="feature-card">
+          <div class="feature-media"><img src="media/surgery-resource.jpg" alt="Gynaecological and surgical resources" loading="lazy" style="transform:scale(1.08); transform-origin:68% 8%;"></div>
+          <div class="feature-body">
+            <span class="eyebrow">Gynaecology</span>
+            <h3><a href="resources-gynaecology.html">Click here for helpful information regarding gynaecological issues or surgery</a></h3>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="reviews">
+    <div class="wrap">
+      <div class="reviews-head">
+        <div class="section-head" style="margin-bottom:0;">
+          <span class="eyebrow">Patient reviews</span>
+          <h2>What patients say.</h2>
+          <p>A few words from Google — swipe or use the arrows to see more.</p>
+        </div>
+        <div class="reviews-nav">
+          <button class="reviews-arrow" type="button" data-dir="-1" aria-label="Previous reviews">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <button class="reviews-arrow" type="button" data-dir="1" aria-label="Next reviews">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="reviews-track">
+
+        <article class="review-card">
+          <div class="review-stars" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+          </div>
+          <p class="review-quote">"Dr Kieran McCaffrey quite literally saved my life at Royal North Shore Hospital. After suffering severe internal bleeding following an egg retrieval procedure, I was rushed to the emergency room in critical condition. Although it was midnight and he was at home, not even on shift, Dr McCaffrey got up and came to the hospital just to operate on me. His expertise and swift action turned a terrifying emergency into a second chance at life. During the surgery he also discovered that I have endometriosis, which now allows me to seek proper treatment. Although I hadn't met him before the surgery, the calm and compassionate attitude of his surgical team made me feel safe and supported. I am truly grateful beyond words — Dr McCaffrey is not only a brilliant surgeon, he is a lifesaver."</p>
+          <div class="review-meta">
+            <div class="review-avatar">N</div>
+            <div class="review-who">
+              <span class="review-name">Nazanin Dashtban</span>
+              <span class="review-source">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                Google review
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <article class="review-card">
+          <div class="review-stars" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+          </div>
+          <p class="review-quote">"Dr McCaffrey saved my fallopian tube from a scheduled salpingectomy (removal of the fallopian tube due to an ectopic pregnancy). I later fell pregnant via that same fallopian tube, and Kieran delivered my baby in an incredibly positive physiological birth — I quite literally have him to thank for my son. I saw another OB for my firstborn daughter, and whilst not negative, that experience could not have been more different from my later care with Kieran through the ectopic and my son's pregnancy. He is truly the most conscientious doctor, with the biggest heart and a genuine desire to listen, understand my preferences and ensure I felt safe. The team at the front desk also made me feel so welcome at every appointment — I would bound out of Dr McCaffrey's rooms full of energy and excited to birth my baby. I will forever be so thankful to him."</p>
+          <div class="review-meta">
+            <div class="review-avatar">C</div>
+            <div class="review-who">
+              <span class="review-name">Claire Hansen</span>
+              <span class="review-source">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                Google review
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <article class="review-card">
+          <div class="review-stars" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+          </div>
+          <p class="review-quote">"Dr Kieran McCaffrey looked after me during my first pregnancy, and I couldn't have asked for a better experience. Working in anaesthetics myself, I'm quite aware of the potential complications that can arise during pregnancy and birth, so I arrived with a fair bit of anxiety — but from the first appointment, I felt completely at ease and knew I could trust him to take care of me and my unborn little one. Kieran is an excellent communicator with a gentle bedside manner, consistently kind, patient, and unhurried. I never felt like 'just another patient'. I'll absolutely be returning to Kieran for any future pregnancies."</p>
+          <div class="review-meta">
+            <div class="review-avatar">K</div>
+            <div class="review-who">
+              <span class="review-name">Kate Leaper</span>
+              <span class="review-source">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                Google review
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <article class="review-card">
+          <div class="review-stars" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+          </div>
+          <p class="review-quote">"I cannot recommend Kieran highly enough. From the very beginning of my pregnancy journey, he made me feel completely safe, supported, and cared for. He is incredibly empathetic, calm, and reassuring, especially during the more challenging moments of pregnancy when emotions and uncertainty can run high. No matter the situation, he always took the time to listen, explain options clearly, and provide thoughtful solutions with my best interests at heart. Thanks to Kieran, my pregnancy and birth experience was a positive one, and there is no question that I will be returning to him for my second pregnancy."</p>
+          <div class="review-meta">
+            <div class="review-avatar">S</div>
+            <div class="review-who">
+              <span class="review-name">Sanjna</span>
+              <span class="review-source">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                Google review
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <article class="review-card">
+          <div class="review-stars" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+          </div>
+          <p class="review-quote">"I cannot recommend Kieran highly enough. From my very first appointment, I felt completely supported, informed, and genuinely cared for. Throughout my pregnancy, I always felt that I was in safe and capable hands. Kieran continuously centred my autonomy and empowered me to make informed decisions, combining deep professional expertise with a calm, kind approach. During delivery, Kieran was calm, confident, and incredibly supportive, helping me feel empowered and cared for every step of the way. My partner and I are so grateful for the exceptional care my baby girl and I received."</p>
+          <div class="review-meta">
+            <div class="review-avatar">A</div>
+            <div class="review-who">
+              <span class="review-name">Aisling Coffey</span>
+              <span class="review-source">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                Google review
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <article class="review-card">
+          <div class="review-stars" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+          </div>
+          <p class="review-quote">"I cannot recommend Kieran highly enough. I travelled from regional NSW to have my second baby via a planned caesarean under Kieran's care, and from the very beginning his knowledge and calm approach made such a difference throughout my pregnancy and delivery. He empowered me to make the right decisions for both myself and my baby, and truly goes above and beyond — checking in multiple times after Billy was born and always making himself available if I had questions. Sydney is incredibly lucky to have him."</p>
+          <div class="review-meta">
+            <div class="review-avatar">L</div>
+            <div class="review-who">
+              <span class="review-name">Lucy Samuels</span>
+              <span class="review-source">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                Google review
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <article class="review-card">
+          <div class="review-stars" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+          </div>
+          <p class="review-quote">"I feel blessed and lucky to have come across Kieran's obstetric services. I had only known him for a short while after changing obstetricians, and from what turned out to be a smooth pregnancy to quite complicated in the third trimester, he was there every step of the way. He was reachable 24/7, even on weekends, and his guidance and attention to bring Bub into this world felt truly magical. People say doctors have kind and compassionate hearts — I experienced that for myself."</p>
+          <div class="review-meta">
+            <div class="review-avatar">G</div>
+            <div class="review-who">
+              <span class="review-name">Gemma Chandan</span>
+              <span class="review-source">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                Google review
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <article class="review-card">
+          <div class="review-stars" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+          </div>
+          <p class="review-quote">"I cannot recommend Dr Kieran McCaffrey highly enough. He cared for me through two pregnancies, and I felt completely supported, informed and safe every step of the way. He takes the time to explain everything clearly, listens without rushing, and approaches care with both professionalism and compassion. In both pregnancies and births Dr McCaffrey provided me with reassurance and confidence. I am incredibly grateful for the care I received and would not hesitate to recommend him to anyone looking for an outstanding obstetrician."</p>
+          <div class="review-meta">
+            <div class="review-avatar">L</div>
+            <div class="review-who">
+              <span class="review-name">Lauren Marnezos</span>
+              <span class="review-source">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                Google review
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <article class="review-card">
+          <div class="review-stars" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+          </div>
+          <p class="review-quote">"I had the best experience with Kieran. I was referred to him by another doctor and saw him pre-pregnancy, and was so happy with the care I received that I returned when I needed an obstetrician upon conceiving my miracle baby. I had an amazingly fast recovery from both my laparoscopy and c-section, both done by Kieran, which has astounded friends and family. I will confidently recommend his services to anyone."</p>
+          <div class="review-meta">
+            <div class="review-avatar">N</div>
+            <div class="review-who">
+              <span class="review-name">Noni Barnes</span>
+              <span class="review-source">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                Google review
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <article class="review-card">
+          <div class="review-stars" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+          </div>
+          <p class="review-quote">"I am so thankful for the care we received from Dr Kieran McCaffrey in the birth of our son. His manner is gentle and nurturing, making the conversations during the delivery calm and clear. The staff at the Mater also remarked during our hospital time how wonderful he is to work with. Could not recommend his practice more."</p>
+          <div class="review-meta">
+            <div class="review-avatar">E</div>
+            <div class="review-who">
+              <span class="review-name">Ella Butler</span>
+              <span class="review-source">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                Google review
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <article class="review-card">
+          <div class="review-stars" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+          </div>
+          <p class="review-quote">"I had the best experience I could have had with Dr McCaffrey. I went into preterm labour and my regular OB wasn't able to attend the hospital I needed, so I was offered Dr McCaffrey — he was so professional, kind and caring. He came to visit me days after I gave birth and checked on my baby in the NICU multiple times for my peace of mind. I would recommend him to all my friends and family, and would happily use him as my OB for all my children."</p>
+          <div class="review-meta">
+            <div class="review-avatar">M</div>
+            <div class="review-who">
+              <span class="review-name">Maddy Hyland</span>
+              <span class="review-source">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                Google review
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <article class="review-card">
+          <div class="review-stars" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+          </div>
+          <p class="review-quote">"My husband and I were so lucky to have Kieran look after us throughout the pregnancy and birth of our first child. He is an excellent physician who always puts patient care first, and I was able to reach out at any time with concerns to which he always promptly responded. He has a great demeanour — the perfect balance of calm and cautious. We had some unexpected issues pop up during the pregnancy, and Kieran couldn't have been more empathetic and caring. His team were also excellent, particularly as we live rurally and were travelling to Sydney."</p>
+          <div class="review-meta">
+            <div class="review-avatar">A</div>
+            <div class="review-who">
+              <span class="review-name">Alice Nowlan</span>
+              <span class="review-source">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                Google review
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <article class="review-card">
+          <div class="review-stars" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+          </div>
+          <p class="review-quote">"Dr Kieran McCaffrey was an exceptional OBGYN — compassionate, caring and open about all aspects of the pregnancy journey. He was readily available to answer all of our questions and concerns, and kept us calm and well-informed about our baby's progress. At delivery, he was extremely skilled at ensuring my partner and I were calm and understood each step, managing the entire medical team at the Mater with professionalism and efficiency. Can definitely recommend him if you are searching for a professional, skilled and caring OBGYN."</p>
+          <div class="review-meta">
+            <div class="review-avatar">K</div>
+            <div class="review-who">
+              <span class="review-name">Keisha Brattoni</span>
+              <span class="review-source">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                Google review
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <article class="review-card">
+          <div class="review-stars" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+          </div>
+          <p class="review-quote">"I had the privilege of having Dr Kieran McCaffrey oversee the delivery of my first child at The Mater Hospital, and it was an exceptional experience. From our initial consultation, his depth of knowledge and professionalism were immediately apparent. As a first-time mother I had imagined the process to be daunting, yet he instilled a sense of empowerment in me as I made the decisions that felt right for my body — contributing to a smooth, positive birth and a calm, reassuring atmosphere throughout. I wholeheartedly recommend Dr Kieran and his outstanding team to any expecting parents."</p>
+          <div class="review-meta">
+            <div class="review-avatar">M</div>
+            <div class="review-who">
+              <span class="review-name">Millie Samuels</span>
+              <span class="review-source">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                Google review
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <article class="review-card">
+          <div class="review-stars" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+          </div>
+          <p class="review-quote">"I had an amazing experience with Dr Kieran as my obstetrician during the delivery of my son. From the very beginning, he was always available, approachable, and willing to answer any questions I had. His thoroughness in explaining every step gave me great confidence and reassurance throughout my pregnancy and delivery. He genuinely listened, provided detailed information, and ensured I felt supported at all times. I highly recommend him to anyone looking for an obstetrician who is knowledgeable, compassionate, and truly dedicated to his patients."</p>
+          <div class="review-meta">
+            <div class="review-avatar">M</div>
+            <div class="review-who">
+              <span class="review-name">Mary Saweris</span>
+              <span class="review-source">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                Google review
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <article class="review-card">
+          <div class="review-stars" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+          </div>
+          <p class="review-quote">"I am beyond grateful for the exceptional care provided by Dr McCaffrey. From the moment we started our journey with him, he has been nothing short of amazing — incredibly patient, kind, and genuinely caring. Whether pre-pregnancy, throughout my pregnancy, or in the postpartum period, he was there every step of the way with unwavering support and expertise. Despite his busy schedule, he always took the time to listen to our concerns and answer our questions thoroughly, and his calming presence gave us the confidence we needed. I cannot recommend Dr McCaffrey enough!"</p>
+          <div class="review-meta">
+            <div class="review-avatar">A</div>
+            <div class="review-who">
+              <span class="review-name">Anita Lee</span>
+              <span class="review-source">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                Google review
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <article class="review-card">
+          <div class="review-stars" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+          </div>
+          <p class="review-quote">"Dr Kieran McCaffrey is truly one of the kindest and most caring doctors I've ever met. His calm, respectful approach immediately puts you at ease, and he takes the time to listen and explain everything clearly. He's not only incredibly knowledgeable and professional, but also genuinely compassionate — someone who clearly cares about his patients. I felt safe, supported, and well looked after in every appointment, and would highly recommend him to anyone seeking a gynaecologist who combines expertise with real human kindness."</p>
+          <div class="review-meta">
+            <div class="review-avatar">A</div>
+            <div class="review-who">
+              <span class="review-name">Arshya Java</span>
+              <span class="review-source">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                Google review
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <article class="review-card">
+          <div class="review-stars" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+          </div>
+          <p class="review-quote">"I cannot speak highly enough of Dr Kieran McCaffrey. From the very first consultation through to the delivery of our baby, the level of care, professionalism, and compassion we received was truly outstanding. He is not only a highly skilled obstetrician but also a genuinely nice human being — he took the time to explain every step, answered all our questions with patience, and made us feel safe and supported throughout the pregnancy. His calm demeanour and genuine concern brought peace of mind, especially during the more anxious moments. His reception team were also warm, efficient, and always went the extra mile for us."</p>
+          <div class="review-meta">
+            <div class="review-avatar">R</div>
+            <div class="review-who">
+              <span class="review-name">Radhika Dinesh</span>
+              <span class="review-source">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                Google review
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <article class="review-card">
+          <div class="review-stars" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+          </div>
+          <p class="review-quote">"Dr Kieran McCaffrey is that doctor we look for in our hour of need. Kieran is a phenomenal surgeon with the highest calibre robotic skills, and his focus on his patients' concerns and satisfaction is exceptional. I am so grateful for his time, discussions, and pre and post surgical care — visiting me on a Saturday, calling me, and fitting me in whenever needed, even if it meant a long day for him. He addressed my issues effectively with surgery and has given me immense confidence for the rest of my life. A skilful surgeon first and foremost, what you will also love is his incredible humility and kindness that goes beyond any duty of care."</p>
+          <div class="review-meta">
+            <div class="review-avatar">R</div>
+            <div class="review-who">
+              <span class="review-name">Ruby</span>
+              <span class="review-source">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                Google review
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <article class="review-card">
+          <div class="review-stars" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+          </div>
+          <p class="review-quote">"I've had the good fortune of working with, and having my wife looked after by, Dr McCaffrey during her recent pregnancy. Kieran is incredibly kind, patient and empathetic — he takes the time to understand his patients' goals and reassure them around their concerns, and doesn't leave any questions unanswered. He is an excellent surgeon and proceduralist, and I consistently observe him communicate well with his team and act decisively in high pressure situations. I am very thankful that he looked after my wife and delivered our baby safely."</p>
+          <div class="review-meta">
+            <div class="review-avatar">D</div>
+            <div class="review-who">
+              <span class="review-name">Dush Iyer</span>
+              <span class="review-source">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                Google review
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <article class="review-card">
+          <div class="review-stars" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+          </div>
+          <p class="review-quote">"The epitome of expert care combined with immeasurable kindness and compassion. Dr McCaffrey has guided me through pregnancy, emergencies and other procedures, and at all times has provided the highest standard of care with much humanity and kindness. I am very grateful for Dr McCaffrey and recommend his services to others without hesitation."</p>
+          <div class="review-meta">
+            <div class="review-avatar">S</div>
+            <div class="review-who">
+              <span class="review-name">Sarah Pringle</span>
+              <span class="review-source">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                Google review
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <article class="review-card">
+          <div class="review-stars" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+          </div>
+          <p class="review-quote">"I have recently had the privilege of being an obstetric patient of Dr McCaffrey's, and I could not recommend him more highly. From the moment we first stepped into his office, he went above and beyond for us, providing the most outstanding obstetric care. Having had a challenging pregnancy, he was available to us at all times, and we felt incredibly supported throughout the entire journey from pregnancy to birth and beyond. He delivered our daughter via caesarean section, and thanks to his impeccable surgical skills we have had an incredibly easy and speedy recovery. Choosing Dr McCaffrey as your obstetrician will be the best decision you make for yourself and your family."</p>
+          <div class="review-meta">
+            <div class="review-avatar">H</div>
+            <div class="review-who">
+              <span class="review-name">Harriet Robertson</span>
+              <span class="review-source">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                Google review
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <article class="review-card">
+          <div class="review-stars" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+          </div>
+          <p class="review-quote">"Dr Kieran McCaffrey is the most amazing surgeon and gynaecologist I have ever come across. I had complications from taking tamoxifen and he quickly got me in the same week for a consultation and surgery. From the beginning it felt like he was treating me like a family member instead of just another number. He is extremely knowledgeable, kind and compassionate, and explains everything perfectly while making you feel comfortable to ask questions. My surgery went extremely well with minimal pain and a quick recovery, and he sent my pathology away as urgent and phoned me with results as soon as he got them so I didn't have any anxiety waiting. I feel so blessed to have been referred to Dr Kieran McCaffrey."</p>
+          <div class="review-meta">
+            <div class="review-avatar">B</div>
+            <div class="review-who">
+              <span class="review-name">Blanche Smith</span>
+              <span class="review-source">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                Google review
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <article class="review-card">
+          <div class="review-stars" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+          </div>
+          <p class="review-quote">"Dr Kieran McCaffrey was quick to perform a timely surgery based on a serious diagnosis. He was very reassuring and guided me every step of the way. Post surgery he remained very attentive to all my queries and opinions, while helping me navigate through a very effective treatment plan. It would have been very overwhelming had it not been for his level of skill and caring persona. He is definitely one of the few competent and compassionate medical professionals I have come across in a very long time — highly recommended."</p>
+          <div class="review-meta">
+            <div class="review-avatar">D</div>
+            <div class="review-who">
+              <span class="review-name">Dilly Chowna</span>
+              <span class="review-source">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                Google review
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <article class="review-card">
+          <div class="review-stars" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+          </div>
+          <p class="review-quote">"I cannot recommend Dr Kieran McCaffrey enough — he delivered my second daughter at North Shore Private. This was my second pregnancy, and having gone with another obstetrician the first time, Kieran went above and beyond any expectations I had. He was easily contactable 24/7 with no silly questions. Having experienced a loss prior to this pregnancy, Kieran eased all my anxieties with regular scans and was calm and patient, taking all my pregnancy concerns seriously. With a few complications along the way making my pregnancy high risk, Kieran ensured baby and I were safe with incredible empathy and advocacy. Being a father himself, he understood the challenges of also juggling a toddler during pregnancy. I highly recommend Dr McCaffrey to anyone looking for an obstetrician."</p>
+          <div class="review-meta">
+            <div class="review-avatar">G</div>
+            <div class="review-who">
+              <span class="review-name">Grace Sinclair</span>
+              <span class="review-source">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                Google review
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <article class="review-card">
+          <div class="review-stars" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+          </div>
+          <p class="review-quote">"Dr McCaffrey provided state of the art care to me from our first meeting in the hospital to post-operative care. He was deeply kind to me during an extremely challenging time, and his efforts have meant that I can enjoy my life again. I feel really blessed to have found a trustworthy and talented OBGYN. Belle is similarly kind, generous and completely competent — her calm efficiency deserves high praise."</p>
+          <div class="review-meta">
+            <div class="review-avatar">E</div>
+            <div class="review-who">
+              <span class="review-name">Edwina Still</span>
+              <span class="review-source">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                Google review
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <article class="review-card">
+          <div class="review-stars" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+          </div>
+          <p class="review-quote">"In a world where it feels like medical professionals often don't have the time of day for you, Kieran was different. He helped me through the complications in my pregnancy with compassion and empathy, and was available for me whenever I needed him — by email, text or phone call — to answer my many questions with patience and knowledge. Thanks to him, we were able to make the decision to have my daughter early via a C-section. Kieran even came to check on my baby when I wasn't around, while she was receiving special care after her early birth. It may be thanks to him that our little girl is here with us healthy and growing well. I can't thank him enough for what he has done for us."</p>
+          <div class="review-meta">
+            <div class="review-avatar">S</div>
+            <div class="review-who">
+              <span class="review-name">S. Takeuchi</span>
+              <span class="review-source">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                Google review
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <article class="review-card">
+          <div class="review-stars" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+          </div>
+          <p class="review-quote">"Kieran helped us through our initial pregnancy loss, and although we were not formally his patients yet, he went above and beyond for us. The support in our subsequent pregnancy was more than we could have hoped for. He always clearly explained our options, was available for questions at all times, and constantly made time for additional reassurance scans — and although professional, ended up feeling more like a friend to us both. During the birth we felt well informed, safe and confident under his care, even though it wasn't our original 'plan'. What is often a daunting experience ended up being quite beautiful. We can't wait to have another baby under his exceptional care and would recommend him to absolutely anyone!"</p>
+          <div class="review-meta">
+            <div class="review-avatar">B</div>
+            <div class="review-who">
+              <span class="review-name">Bella Jarman</span>
+              <span class="review-source">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                Google review
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <article class="review-card">
+          <div class="review-stars" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+          </div>
+          <p class="review-quote">"Dr McCaffrey is an amazing doctor, a very skilful surgeon and a kind and caring person. My case was very complex, as I had a couple of very large fibroids, one of them at the back. He performed a robotically assisted myomectomy while other doctors were suggesting a hysterectomy. My recovery has been smooth, the symptoms are gone completely and I feel like a new person. It's been life-changing. I can't recommend Dr McCaffrey highly enough — I'm lucky to have met him."</p>
+          <div class="review-meta">
+            <div class="review-avatar">O</div>
+            <div class="review-who">
+              <span class="review-name">Olga Kors</span>
+              <span class="review-source">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                Google review
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <article class="review-card">
+          <div class="review-stars" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+          </div>
+          <p class="review-quote">"If we could leave 10 stars we would. When we first met Dr Kieran we were already well into our fair share of struggles and tragedies when it came to child bearing, and the support we received from him this time around, from start to birth, was unheard of. Despite being extremely professional, he always displayed a level of compassion which made you feel like a friend rather than a patient — patiently explaining and answering the many questions we had due to our past experiences. We were always reassured and felt like there was a plan for every scenario. Before, during and after birth, the care and follow-up he provided has been a great source of consolation, and we know we will never deliver any of our children without him."</p>
+          <div class="review-meta">
+            <div class="review-avatar">S</div>
+            <div class="review-who">
+              <span class="review-name">Sally Marie Semaan</span>
+              <span class="review-source">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                Google review
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <article class="review-card">
+          <div class="review-stars" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+          </div>
+          <p class="review-quote">"I was initially unsure which path to take, but upon contacting Dr Kieran McCaffrey's clinic and speaking with Annabelle, I found invaluable support and guidance. Dr McCaffrey and his team proved exceptional throughout my surgical journey, attentively addressing my concerns from pre-surgery to post-discharge follow-ups. Their commitment to women's health is truly commendable. Thank you, Dr McCaffrey, for your dedicated care."</p>
+          <div class="review-meta">
+            <div class="review-avatar">K</div>
+            <div class="review-who">
+              <span class="review-name">Kartik Devi</span>
+              <span class="review-source">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                Google review
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <article class="review-card">
+          <div class="review-stars" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+          </div>
+          <p class="review-quote">"The most genuine, kind and caring doctor I have ever come across. Kieran was super informative and made me feel so at ease on the lead up to my endo surgery, with numerous calls before and after. His patient care is above and beyond — since my operation I have relocated to Perth, and Kieran has still checked in on me and supported me with referrals and follow ups. I would recommend this doctor to anyone!"</p>
+          <div class="review-meta">
+            <div class="review-avatar">L</div>
+            <div class="review-who">
+              <span class="review-name">Lucia Davies</span>
+              <span class="review-source">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                Google review
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <article class="review-card">
+          <div class="review-stars" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+          </div>
+          <p class="review-quote">"Dr Kieran McCaffrey is a fantastic gynaecologist/obstetrician. He is so lovely, caring and makes you feel so comfortable, especially when talking about women's issues. His professional manner shows as well as his wealth of knowledge. Having seen a lot of different gynaecologists over the years, I feel so happy to say I have finally found one who truly cares and makes you feel so relaxed and calm. I would highly recommend Dr McCaffrey to anyone living in Sydney or NSW!"</p>
+          <div class="review-meta">
+            <div class="review-avatar">N</div>
+            <div class="review-who">
+              <span class="review-name">Natacha Cain</span>
+              <span class="review-source">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                Google review
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <article class="review-card">
+          <div class="review-stars" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+          </div>
+          <p class="review-quote">"Dr Kieran is brilliant! I cannot recommend him enough. He is professional and very personable and empathetic. I have been to many different gynaecologists in the past and found him to be the best. He took time to understand my history, my preferences and my worries, and talked me through the medical procedure in as much detail as I desired — explaining the medical language as needed. He was also available to me before and after the procedure when I had concerns outside of appointments, and responded to emails or texts quickly. I cannot thank Dr Kieran and his team enough for all their great care and support — I'd definitely recommend him to everyone!"</p>
+          <div class="review-meta">
+            <div class="review-avatar">A</div>
+            <div class="review-who">
+              <span class="review-name">A D (Amy)</span>
+              <span class="review-source">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                Google review
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <article class="review-card">
+          <div class="review-stars" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+          </div>
+          <p class="review-quote">"I'm grateful to Dr McCaffrey for his exceptional care. After years of seeking answers, Dr Kieran diagnosed my endometriosis and skilfully performed a laparoscopic surgery with minimal scarring. His consistent follow-ups ensured I felt heard and understood. Thanks to him, I now live pain-free. I highly recommend him as a fantastic gynaecologist."</p>
+          <div class="review-meta">
+            <div class="review-avatar">G</div>
+            <div class="review-who">
+              <span class="review-name">Grace Toombs</span>
+              <span class="review-source">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                Google review
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <article class="review-card">
+          <div class="review-stars" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+          </div>
+          <p class="review-quote">"Dr Kieran McCaffrey is an absolutely amazing gynaecologist! He is attentive, ethical, passionate, nurturing and friendly. Being an extremely sensitive and private 50-year-old woman, especially when it comes to personal women's problems, and having seen a few different gynaecologists, I finally came across a specialist with an absolutely fantastic, relaxing, kind and caring bedside manner second to none. I have never felt so comfortable and trusting with any other gynaecologist, and I highly recommend Dr McCaffrey. He treated me with sensitivity, genuine care and kindness, and really listened to my concerns and issues. And to top it all off, his follow up after my surgery was exemplary! Thank you so much Dr McCaffrey."</p>
+          <div class="review-meta">
+            <div class="review-avatar">N</div>
+            <div class="review-who">
+              <span class="review-name">Nicole Turnbull</span>
+              <span class="review-source">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                Google review
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <article class="review-card">
+          <div class="review-stars" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg>
+          </div>
+          <p class="review-quote">"Dr Kieran McCaffrey performed laparoscopy and myomectomy surgery on me to remove fibroids and deep infiltrating endometriosis. I recovered smoothly without any complications. I highly recommend Dr Kieran to anyone looking for a surgeon who knows his craft well and cares for his patients — my procedure was well explained to me in simple, understandable English without the complicated medical jargon. I felt relaxed and safe having my surgery under his care, and post surgery he followed up personally on numerous occasions to ensure I was faring well. His expertise in women's health is top-notch. I am six weeks post surgery now, and I must confess it was all worth it flying from Tasmania to have my surgery with him in Sydney."</p>
+          <div class="review-meta">
+            <div class="review-avatar">W</div>
+            <div class="review-who">
+              <span class="review-name">Wonu Ogunkoya</span>
+              <span class="review-source">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                Google review
+              </span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="locations">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Consulting rooms</span>
+        <h2>See Dr McCaffrey at either location.</h2>
+        <p>Two consulting rooms across Sydney — choose whichever is more convenient. Both appointments follow the same records and continuity of care.</p>
+      </div>
+      <div class="locations-grid">
+
+        <article class="location-card">
+          <div class="location-top">
+            <div class="location-pin" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.1-7-11.5A7 7 0 0 1 19 9.5C19 14.9 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+            </div>
+            <span class="location-tag">North Shore</span>
+          </div>
+          <div>
+            <span class="location-org">North Shore Private Hospital</span>
+            <h3>North Shore Rooms</h3>
+          </div>
+          <p class="location-detail">
+            <strong>Suite 3, Level 5 / 3 Westbourne Street</strong><br>
+            St Leonards NSW 2065<br><br>
+            Phone: 02 9191 7432<br>
+            Email: admin@drmccaffrey.com.au
+          </p>
+          <div class="location-actions">
+            <a class="btn btn-navy" href="tel:0291917432">See Dr McCaffrey — North Shore</a>
+            <a class="btn btn-outline" href="tel:0291917432">Call the rooms</a>
+          </div>
+        </article>
+
+        <article class="location-card">
+          <div class="location-top">
+            <div class="location-pin" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.1-7-11.5A7 7 0 0 1 19 9.5C19 14.9 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+            </div>
+            <span class="location-tag">Double Bay</span>
+          </div>
+          <div>
+            <span class="location-org">Nuvo Health, Double Bay</span>
+            <h3>Double Bay Rooms</h3>
+          </div>
+          <p class="location-detail">
+            <strong>Floor 1, Suite 3, 451 New South Head Road</strong><br>
+            Double Bay NSW 2028<br><br>
+            Phone: (02) 8332 2662
+          </p>
+          <div class="location-actions">
+            <a class="btn btn-navy" href="https://nuvohealth.com.au/doctors/dr-kieran-mccaffrey/" target="_blank" rel="noopener">See Dr McCaffrey — Double Bay</a>
+            <a class="btn btn-outline" href="tel:0283322662">Call the rooms</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <div class="contact-panel">
+        <div class="contact-intro">
+          <h2>Let's <em>talk.</em></h2>
+          <p>Send a detailed message and our rooms will be in touch. For urgent obstetric concerns outside consulting hours, please contact the delivery suite of your nominated hospital directly.</p>
+          <ul class="contact-details">
+            <li><strong>Phone</strong> <a href="tel:0291917432">02 9191 7432</a></li>
+            <li><strong>Email</strong> <a href="mailto:admin@drmccaffrey.com.au">admin@drmccaffrey.com.au</a></li>
+            <li><strong>Instagram</strong> <a href="https://www.instagram.com/kieranmccaffrey/" target="_blank" rel="noopener">@kieranmccaffrey</a></li>
+          </ul>
+        </div>
+        <form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" action="/thank-you.html" class="contact-form">
+          <input type="hidden" name="form-name" value="contact">
+          <p class="form-hp"><label>Leave this field blank if you're human: <input name="bot-field"></label></p>
+          <div class="form-field">
+            <label for="c-name">Your name<span aria-hidden="true">*</span></label>
+            <input id="c-name" name="name" type="text" autocomplete="name" required>
+          </div>
+          <div class="form-field">
+            <label for="c-email">Email<span aria-hidden="true">*</span></label>
+            <input id="c-email" name="email" type="email" autocomplete="email" required>
+          </div>
+          <div class="form-field">
+            <label for="c-phone">Phone</label>
+            <input id="c-phone" name="phone" type="tel" autocomplete="tel">
+          </div>
+          <div class="form-field">
+            <label for="c-message">How can we help?<span aria-hidden="true">*</span></label>
+            <textarea id="c-message" name="message" rows="4" required></textarea>
+          </div>
+          <label class="contact-consent">
+            <input type="checkbox" name="consent_contact" value="Agreed" required>
+            By submitting, you're agreeing we may contact you about your enquiry — we'll never share your details.
+          </label>
+          <button class="btn btn-solid" type="submit">Send message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section id="new-patient">
+    <div class="wrap">
+      <div class="cta-banner">
+        <div>
+          <h2>New to the practice?</h2>
+          <p>Fill out our new patient form and we'll be in touch to arrange your first appointment at either location.</p>
+        </div>
+        <a class="btn btn-solid" href="new-patient-form.html">New Patient Form</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script>
+  document.querySelectorAll('.reviews-arrow').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var section = btn.closest('#reviews');
+      var track = section.querySelector('.reviews-track');
+      var card = track.querySelector('.review-card');
+      var amount = (card ? card.getBoundingClientRect().width : 320) + 22;
+      track.scrollBy({ left: amount * Number(btn.dataset.dir), behavior: 'smooth' });
+    });
+  });
+
+  // Close the "Menu" dropdown once a link inside it is chosen — the panel's links are all
+  // same-page anchors, so without this the <details> would stay open after scrolling to the section.
+  (function(){
+    var menu = document.querySelector('.menu-dropdown');
+    if (!menu) return;
+    menu.querySelectorAll('.menu-dropdown-panel a').forEach(function(link){
+      link.addEventListener('click', function(){ menu.open = false; });
+    });
+  })();
+</script>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="wordmark" href="#main">Dr Kieran <em>McCaffrey</em></a>
+        <p>Obstetrician &amp; Gynaecologist consulting at North Shore Rooms and Nuvo Health, Double Bay.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Practice</h4>
+        <ul>
+          <li><a href="#care">Obstetrics</a></li>
+          <li><a href="#care">Gynaecology</a></li>
+          <li><a href="#meet">About Me</a></li>
+          <li><a href="new-patient-form.html">New Patient Form</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:0291917432">02 9191 7432</a></li>
+          <li><a href="mailto:admin@drmccaffrey.com.au">admin@drmccaffrey.com.au</a></li>
+          <li><a href="#locations">North Shore &amp; Double Bay</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-bottom-text">
+        <span>© 2026 Dr Kieran McCaffrey. Obstetrician &amp; Gynaecologist.</span>
+        <span>Fax 02 8365 3223</span>
+      </div>
+      <a class="social-icon" href="https://www.instagram.com/kieranmccaffrey/" target="_blank" rel="noopener" aria-label="Dr Kieran McCaffrey on Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<div class="draft-badge">Redesign concept — draft for review</div>
